@@ -123,6 +123,28 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &895559628 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9161871650751013103, guid: 2b3e851079303fb449a9b253f11bdb68, type: 3}
+  m_PrefabInstance: {fileID: 9161871651299964759}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &895559634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 895559628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 558d385f334dc404c9c2c5ffc7ac004f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 10
+  jumpSpeed: 20
+  Ground:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &1089577647
 GameObject:
   m_ObjectHideFlags: 0
@@ -532,7 +554,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4805361650502696584, guid: e606ef988ccc2e242829af267c890dc5, type: 3}
       propertyPath: jumpSpeed
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4805361650502696587, guid: e606ef988ccc2e242829af267c890dc5, type: 3}
       propertyPath: m_RootOrder
@@ -630,6 +652,10 @@ PrefabInstance:
     - target: {fileID: 9161871650751013098, guid: 2b3e851079303fb449a9b253f11bdb68, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9161871650751013102, guid: 2b3e851079303fb449a9b253f11bdb68, type: 3}
+      propertyPath: m_GravityScale
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9161871650751013103, guid: 2b3e851079303fb449a9b253f11bdb68, type: 3}
       propertyPath: m_Name
