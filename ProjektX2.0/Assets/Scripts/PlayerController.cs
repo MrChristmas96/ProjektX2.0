@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
         col = GetComponent<Collider2D>();
     }
 
-    private void OnEnable()
+  /*  private void OnEnable()
     {
         player1ActionControls.Enable();
     }
@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     {
 
     }
+  */
     void Start()
     {
         player1ActionControls.Player1.Jump.performed += _ => Jump();
