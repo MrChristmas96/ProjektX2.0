@@ -19,11 +19,12 @@ public class PlayerController : MonoBehaviour
         col = GetComponent<Collider2D>();
     }
 
-  /*  private void OnEnable()
+    private void OnEnable()
     {
         player1ActionControls.Enable();
     }
 
+  /*
     private void OnDisable()
     {
 
