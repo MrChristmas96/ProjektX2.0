@@ -9,6 +9,7 @@ public class enemy_move : MonoBehaviour
     public float speed;
     public bool MoveRight;
     public bool MoveLeft;
+    
 
     // Update is called once per frame
     void Update()
@@ -24,12 +25,18 @@ public class enemy_move : MonoBehaviour
 
         }
 
-        private void OnTriggerEnter2D(Collider2D collision)
+        private void OnCollision2D(Collider2D other)
         {
-                SceneManager.LoadScene("ProjektX2.0");
+        if (MoveRight)
+        {
+            MoveRight = false;
+        }
+        else
+        {
+            MoveRight = true;
+        }
         {
 
-        
         }
     }
 }
