@@ -25,7 +25,7 @@ public class enemy_move : MonoBehaviour
 
         }
 
-        private void OnCollision2D(Collider2D other)
+        private void OnCollisionEnter2D(Collider2D other)
         {
         if (MoveRight)
         {
@@ -36,7 +36,6 @@ public class enemy_move : MonoBehaviour
             MoveRight = true;
         }
         {
-
         }
     }
 }
