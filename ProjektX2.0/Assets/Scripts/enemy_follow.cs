@@ -26,7 +26,7 @@ public class enemy_follow : MonoBehaviour
         }
         else
         {
-            if(Vector2.Distance(transform.position, target1.position) > 2)
+            if(Vector2.Distance(transform.position, target1.position) > 2.5)
             transform.position = Vector2.MoveTowards(transform.position, target1.position, speed * Time.deltaTime);
         }
     }
