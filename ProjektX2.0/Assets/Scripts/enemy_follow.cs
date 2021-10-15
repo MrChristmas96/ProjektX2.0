@@ -13,6 +13,7 @@ public class enemy_follow : MonoBehaviour
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        target1 = GameObject.FindGameObjectWithTag("house").GetComponent<Transform>();
     }
     
 
@@ -31,8 +32,4 @@ public class enemy_follow : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
-    {
-        target1 = GameObject.FindGameObjectWithTag("house").GetComponent<Transform>();
-    }
 }
