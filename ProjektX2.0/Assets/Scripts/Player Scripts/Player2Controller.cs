@@ -2,36 +2,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class Player2Controller : MonoBehaviour
 {
     public float movementSpeed;
     public float jumpSpeed;
     public LayerMask Ground;
+
+    public GameMaster gameMaster;
 
     private bool canDoubleJump = false;
     private float doubleJumpDelay = .3f;
     public float jumpTimer = 0f;
     private bool extraJumpBoost = false;
 
-    private PlayerActionControls player1ActionControls;
+    private PlayerActionControls player2ActionControls;
     private Rigidbody2D rb;
     private Collider2D col;
 
     private void Awake()
     {
-        player1ActionControls = new PlayerActionControls();
+        player2ActionControls = new PlayerActionControls();
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
     }
 
     private void OnEnable()
     {
-        player1ActionControls.Enable();
+        player2ActionControls.Enable();
     }
 
     void Start()
     {
-        player1ActionControls.Player1.Jump.performed += _ => Jump();
+        player2ActionControls.Player2.Jump.performed += _ => Jump();
     }
 
     private void Jump()
@@ -43,12 +45,12 @@ public class PlayerController : MonoBehaviour
             jumpTimer = doubleJumpDelay;
             canDoubleJump = true;
         }
-        else if (canDoubleJump && jumpTimer <=0)
+        else if (canDoubleJump && jumpTimer <= 0)
         {
-           
+
             if (extraJumpBoost)
             {
-                rb.AddForce(new Vector2(0, jumpSpeed*1.8f), ForceMode2D.Impulse);
+                rb.AddForce(new Vector2(0, jumpSpeed * 1.8f), ForceMode2D.Impulse);
                 extraJumpBoost = false;
             }
             else
@@ -75,11 +77,21 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+
+        if (other.CompareTag("PointDrop"))
+        {
+            Debug.Log("Collide P2");
+            gameMaster.P2PointGain();
+            Destroy(other.gameObject);
+        }
+    }
     void Update()
     {
         //Checker om player skal bruge et extra boost til jump hvis y velocity bliver for "stor"
         float velY = rb.velocity.y;
-        
+
         if (velY < -11f)
         {
             extraJumpBoost = true;
@@ -88,9 +100,9 @@ public class PlayerController : MonoBehaviour
         {
             extraJumpBoost = false;
         }
-        
+
         //Read movement value
-        float movementInput = player1ActionControls.Player1.Move.ReadValue<float>();
+        float movementInput = player2ActionControls.Player2.Move.ReadValue<float>();
 
         //Move player
         Vector3 currentPosition = transform.position;

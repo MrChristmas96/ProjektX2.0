@@ -197,7 +197,7 @@ GameObject:
   - component: {fileID: 1089577648}
   m_Layer: 8
   m_Name: Ground1
-  m_TagString: Untagged
+  m_TagString: ground1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -301,6 +301,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1338656706}
   - component: {fileID: 1338656705}
+  - component: {fileID: 1338656707}
   m_Layer: 0
   m_Name: GM
   m_TagString: Untagged
@@ -345,6 +346,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1338656707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1338656704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13cf6716381b2714d80a4137554d08a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1Points: 0
+  p2Points: 0
 --- !u!1 &1485032425
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,7 +467,7 @@ GameObject:
   - component: {fileID: 1554600816}
   m_Layer: 8
   m_Name: Ground2
-  m_TagString: Untagged
+  m_TagString: ground2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -770,6 +785,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player1
       objectReference: {fileID: 0}
+    - target: {fileID: 4805361650502696584, guid: e606ef988ccc2e242829af267c890dc5, type: 3}
+      propertyPath: gameMaster
+      value: 
+      objectReference: {fileID: 1338656707}
     - target: {fileID: 4805361650502696587, guid: e606ef988ccc2e242829af267c890dc5, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -823,6 +842,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 895559634, guid: 2b3e851079303fb449a9b253f11bdb68, type: 3}
+      propertyPath: gameMaster
+      value: 
+      objectReference: {fileID: 1338656707}
     - target: {fileID: 9161871650751013098, guid: 2b3e851079303fb449a9b253f11bdb68, type: 3}
       propertyPath: m_RootOrder
       value: 2

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class enemy_follow : MonoBehaviour
+public class EnemyFollow : MonoBehaviour
 {
     public float speed;
     public float StoppingDistance;
@@ -12,7 +12,7 @@ public class enemy_follow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        target = GameObject.FindGameObjectWithTag("Player1").GetComponent<Transform>();
         target1 = GameObject.FindGameObjectWithTag("house").GetComponent<Transform>();
     }
     
