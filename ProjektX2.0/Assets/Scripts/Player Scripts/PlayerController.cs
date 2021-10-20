@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
         player1ActionControls = new PlayerActionControls();
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
+        gameMaster = FindObjectOfType < GameMaster > ();
     }
 
     private void OnEnable()
@@ -82,7 +83,6 @@ public class PlayerController : MonoBehaviour
 
         if (other.CompareTag("PointDrop"))
         {
-            Debug.Log("Collide P1");
             gameMaster.P1PointGain();
             Destroy(other.gameObject);
         }
