@@ -24,7 +24,7 @@ public class SendEnemy : MonoBehaviour
         else if (collision.CompareTag("Player2"))
         {
             waveSpawner.enemyP2 = gameMaster.p2Points;
-            gameMaster.p1Points = 0;
+            gameMaster.p2Points = 0;
         }
 
     }

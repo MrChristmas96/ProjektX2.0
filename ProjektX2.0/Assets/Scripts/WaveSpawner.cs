@@ -24,6 +24,7 @@ public class WaveSpawner : MonoBehaviour
 
     public Transform[] spawnPoints;
 
+
     public float timeBetweenWaves = 5f;
     private float waveCountDown;
 
@@ -44,13 +45,13 @@ public class WaveSpawner : MonoBehaviour
     {
         if (enemyP1 > 0)
         {
-            SpawnSendEnemyP2();
+            SpawnSendEnemyP1();
             Debug.Log("Send EnemyP1");
         }
 
         if (enemyP2 > 0)
         {
-            SpawnSendEnemyP1();
+            SpawnSendEnemyP2();
             Debug.Log("Send EnemyP2");
         }
 
@@ -151,7 +152,7 @@ public class WaveSpawner : MonoBehaviour
     {
         for (int i = 0; i < enemyP1; i++)
         {
-            Transform _sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
+            Transform _sp = spawnPoints[Random.Range(2, 4)];
             Instantiate(enemy, _sp.position, _sp.rotation);
             Debug.Log("SpawnSendEnemy");
             enemyP1--;
@@ -159,12 +160,12 @@ public class WaveSpawner : MonoBehaviour
     }
     void SpawnSendEnemyP2()
     {
-        for (int i = 0; i < enemyP1; i++)
+        for (int i = 0; i < enemyP2; i++)
         {
-            Transform _sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
+            Transform _sp = spawnPoints[Random.Range(0, 2)];
             Instantiate(enemy, _sp.position, _sp.rotation);
             Debug.Log("SpawnSendEnemy");
-            enemyP1--;
+            enemyP2--;
         }
     }
 
