@@ -7,6 +7,9 @@ public class GameMaster : MonoBehaviour
     public int p1Points;
     public int p2Points;
 
+    public int p1HouseHealth;
+    public int p2HouseHealth;
+
 
     public void P1PointGain()
     {

@@ -7,6 +7,7 @@ public class EnemyController : MonoBehaviour
 
     public GameObject pointDrop;
 
+    public int health;
 
     void Start()
     {

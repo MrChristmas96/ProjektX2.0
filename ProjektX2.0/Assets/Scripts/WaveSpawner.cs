@@ -12,7 +12,7 @@ public class WaveSpawner : MonoBehaviour
     {
         public string name;
         public Transform enemy;
-        public static int count;
+        public static int count = 4;
         public float rate;
 
     }
@@ -97,7 +97,7 @@ public class WaveSpawner : MonoBehaviour
         if (nextWave + 1 > waves.Length - 1) //Hvis nextWave er størrer end 0 begynder den at spawne flere fjender
         {
             Debug.Log("Adding more enemies");
-            Wave.count++;
+            Wave.count += 2;
            
             nextWave = 0;
             
