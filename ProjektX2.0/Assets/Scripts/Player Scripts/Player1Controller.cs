@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class Player1Controller : MonoBehaviour
 {
     public float movementSpeed;
     public float jumpSpeed;
@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
         player1ActionControls = new PlayerActionControls();
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
-        gameMaster = FindObjectOfType < GameMaster > ();
+        gameMaster = FindObjectOfType<GameMaster>();
     }
 
     private void OnEnable()
@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         player1ActionControls.Player1.Jump.performed += _ => Jump();
+        player1ActionControls.Player1.RangedAttack.performed += _ => RangedAttack();
     }
 
     private void Jump()
@@ -61,6 +62,11 @@ public class PlayerController : MonoBehaviour
             canDoubleJump = false;
         }
 
+    }
+
+    private void RangedAttack()
+    {
+        Debug.Log("Attacked");
     }
 
     private bool IsGrounded()
