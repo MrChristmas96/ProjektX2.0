@@ -2,11 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class Player1Controller : MonoBehaviour
 {
     public float movementSpeed;
     public float jumpSpeed;
     public LayerMask Ground;
+
+    public GameMaster gameMaster;
+
+    private bool canDoubleJump = false;
+    private float doubleJumpDelay = .3f;
+    public float jumpTimer = 0f;
+    private bool extraJumpBoost = false;
 
     private PlayerActionControls player1ActionControls;
     private Rigidbody2D rb;
@@ -17,6 +24,7 @@ public class PlayerController : MonoBehaviour
         player1ActionControls = new PlayerActionControls();
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
+        gameMaster = FindObjectOfType<GameMaster>();
     }
 
     private void OnEnable()
@@ -24,23 +32,41 @@ public class PlayerController : MonoBehaviour
         player1ActionControls.Enable();
     }
 
-  /*
-    private void OnDisable()
-    {
-
-    }
-  */
     void Start()
     {
         player1ActionControls.Player1.Jump.performed += _ => Jump();
+        player1ActionControls.Player1.RangedAttack.performed += _ => RangedAttack();
     }
 
     private void Jump()
     {
+
         if (IsGrounded())
         {
             rb.AddForce(new Vector2(0, jumpSpeed), ForceMode2D.Impulse);
+            jumpTimer = doubleJumpDelay;
+            canDoubleJump = true;
         }
+        else if (canDoubleJump && jumpTimer <=0)
+        {
+           
+            if (extraJumpBoost)
+            {
+                rb.AddForce(new Vector2(0, jumpSpeed*1.8f), ForceMode2D.Impulse);
+                extraJumpBoost = false;
+            }
+            else
+            {
+                rb.AddForce(new Vector2(0, jumpSpeed), ForceMode2D.Impulse);
+            }
+            canDoubleJump = false;
+        }
+
+    }
+
+    private void RangedAttack()
+    {
+        Debug.Log("Attacked");
     }
 
     private bool IsGrounded()
@@ -55,9 +81,32 @@ public class PlayerController : MonoBehaviour
         bottomRightPoint.y -= col.bounds.extents.y;
 
         return Physics2D.OverlapArea(topLeftPoint, bottomRightPoint, Ground);
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+
+        if (other.CompareTag("PointDrop"))
+        {
+            gameMaster.P1PointGain();
+            Destroy(other.gameObject);
+        }
     }
     void Update()
     {
+        //Checker om player skal bruge et extra boost til jump hvis y velocity bliver for "stor"
+        float velY = rb.velocity.y;
+        
+        if (velY < -11f)
+        {
+            extraJumpBoost = true;
+        }
+        else
+        {
+            extraJumpBoost = false;
+        }
+        
         //Read movement value
         float movementInput = player1ActionControls.Player1.Move.ReadValue<float>();
 
@@ -65,5 +114,12 @@ public class PlayerController : MonoBehaviour
         Vector3 currentPosition = transform.position;
         currentPosition.x += movementInput * movementSpeed * Time.deltaTime;
         transform.position = currentPosition;
+
+        if (jumpTimer > 0f)
+        {
+            jumpTimer -= Time.deltaTime;
+        }
+
     }
+
 }

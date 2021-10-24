@@ -12,15 +12,18 @@ public class WaveSpawner : MonoBehaviour
     {
         public string name;
         public Transform enemy;
-        public static int count;
+        public static int count = 4;
         public float rate;
 
     }
+
+    public Transform enemy;
 
     public Wave[] waves;
     private int nextWave = 0;
 
     public Transform[] spawnPoints;
+
 
     public float timeBetweenWaves = 5f;
     private float waveCountDown;
@@ -28,6 +31,9 @@ public class WaveSpawner : MonoBehaviour
     private float searchCountDown = 1f;
 
     public SpawnState state = SpawnState.COUNTING;
+
+    public int enemyP1 = 0;
+    public int enemyP2 = 0; 
 
     private void Start()
     {
@@ -37,6 +43,18 @@ public class WaveSpawner : MonoBehaviour
 
     private void Update()
     {
+        if (enemyP1 > 0)
+        {
+            SpawnSendEnemyP1();
+            Debug.Log("Send EnemyP1");
+        }
+
+        if (enemyP2 > 0)
+        {
+            SpawnSendEnemyP2();
+            Debug.Log("Send EnemyP2");
+        }
+
         if (state == SpawnState.WAITING)
         {
             //Check om der er fjender i live
@@ -65,6 +83,8 @@ public class WaveSpawner : MonoBehaviour
                 waveCountDown -= Time.deltaTime;
             }
         }
+
+
     }
 
     void WaveCompleted()
@@ -74,10 +94,10 @@ public class WaveSpawner : MonoBehaviour
         state = SpawnState.COUNTING;
         waveCountDown = timeBetweenWaves;
 
-        if (nextWave + 1 > waves.Length - 1) 
+        if (nextWave + 1 > waves.Length - 1) //Hvis nextWave er størrer end 0 begynder den at spawne flere fjender
         {
             Debug.Log("Adding more enemies");
-            Wave.count++;
+            Wave.count += 2;
            
             nextWave = 0;
             
@@ -86,9 +106,6 @@ public class WaveSpawner : MonoBehaviour
         {
             nextWave++;
         }
-
-        
-
     }
 
     bool EnemyIsAlive()
@@ -130,5 +147,28 @@ public class WaveSpawner : MonoBehaviour
         Instantiate(_enemy, _sp.position, _sp.rotation);
         Debug.Log("Spawn" + _enemy.name);
     }
+
+    void SpawnSendEnemyP1()
+    {
+        for (int i = 0; i < enemyP1; i++)
+        {
+            Transform _sp = spawnPoints[Random.Range(2, 4)];
+            Instantiate(enemy, _sp.position, _sp.rotation);
+            Debug.Log("SpawnSendEnemy");
+            enemyP1--;
+        }
+    }
+    void SpawnSendEnemyP2()
+    {
+        for (int i = 0; i < enemyP2; i++)
+        {
+            Transform _sp = spawnPoints[Random.Range(0, 2)];
+            Instantiate(enemy, _sp.position, _sp.rotation);
+            Debug.Log("SpawnSendEnemy");
+            enemyP2--;
+        }
+    }
+
+
 
 }
