@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2709688927502260332}
   - component: {fileID: 2709688927502260327}
   - component: {fileID: 755998071488943652}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -149,3 +149,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointDrop: {fileID: 3109080846801636736, guid: 6e68079566dc01645902835ea27d8f85, type: 3}
+  enemyHealth: 100

@@ -7,13 +7,17 @@ public class EnemyController : MonoBehaviour
 
     public GameObject pointDrop;
 
-    public int health;
+    public int enemyHealth = 100;
 
-    void Start()
+    private void Update()
     {
-        
+        if (enemyHealth <= 0)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
+    //Disable og ikke destroy så vi kan efterlade lig på banen.
     private void OnDisable()
     {
         // Fixer error "Some objects were not cleaned up when closing the scene" så den kun instantiater hvis scener er loaded
@@ -21,8 +25,9 @@ public class EnemyController : MonoBehaviour
  
         Instantiate(pointDrop, transform.position, Quaternion.identity);
     }
-    void Update()
+
+    public void TakeDamage()
     {
-        
+        enemyHealth -= 50;
     }
 }

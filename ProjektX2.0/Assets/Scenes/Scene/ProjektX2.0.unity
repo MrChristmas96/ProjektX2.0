@@ -454,6 +454,8 @@ MonoBehaviour:
   p2Points: 0
   p1HouseHealth: 0
   p2HouseHealth: 0
+  p1Health: 0
+  P2Health: 0
 --- !u!81 &1338656708
 AudioListener:
   m_ObjectHideFlags: 0
@@ -663,6 +665,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1601178297
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1601178298}
+  m_Layer: 0
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1601178298
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601178297}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.5, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 517694079}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1618389646
 GameObject:
   m_ObjectHideFlags: 0
@@ -860,6 +892,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HouseP2
       objectReference: {fileID: 0}
+    - target: {fileID: 8464551859971936186, guid: c1e901d68b4251c42a55e8f97ec5f009, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 86fd795cb9eb8cf47bbc75108cac4dc8, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1e901d68b4251c42a55e8f97ec5f009, type: 3}
 --- !u!1001 &4805361650403946226
@@ -877,6 +913,18 @@ PrefabInstance:
       propertyPath: gameMaster
       value: 
       objectReference: {fileID: 1338656707}
+    - target: {fileID: 4805361650502696584, guid: e606ef988ccc2e242829af267c890dc5, type: 3}
+      propertyPath: attackPoint
+      value: 
+      objectReference: {fileID: 1601178298}
+    - target: {fileID: 4805361650502696584, guid: e606ef988ccc2e242829af267c890dc5, type: 3}
+      propertyPath: attackRange
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805361650502696584, guid: e606ef988ccc2e242829af267c890dc5, type: 3}
+      propertyPath: enemyLayers.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
     - target: {fileID: 4805361650502696587, guid: e606ef988ccc2e242829af267c890dc5, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -986,6 +1034,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HouseP1
       objectReference: {fileID: 0}
+    - target: {fileID: 8464551859971936186, guid: c1e901d68b4251c42a55e8f97ec5f009, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 86fd795cb9eb8cf47bbc75108cac4dc8, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1e901d68b4251c42a55e8f97ec5f009, type: 3}
 --- !u!1001 &9161871651299964759
