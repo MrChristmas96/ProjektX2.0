@@ -81,6 +81,7 @@ public class Player1Controller : MonoBehaviour
         }
     }
 
+    //Laver en cirkel for at visualisere AttackRange
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);    
