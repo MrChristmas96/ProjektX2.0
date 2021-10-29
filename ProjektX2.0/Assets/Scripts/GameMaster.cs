@@ -23,4 +23,9 @@ public class GameMaster : MonoBehaviour
     {
         p2Points++;
     }
+
+    public void P1takeDamage()
+    {
+
+    }
 }
