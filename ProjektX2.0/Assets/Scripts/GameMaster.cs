@@ -10,8 +10,8 @@ public class GameMaster : MonoBehaviour
     public int p1HouseHealth;
     public int p2HouseHealth;
 
-    public int p1Health = 100;
-    public int P2Health = 100;
+    public float p1Health = 100f;
+    public float P2Health = 100f;
 
 
     public void P1PointGain()
