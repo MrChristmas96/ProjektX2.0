@@ -35,7 +35,7 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""RangedAttack"",
+                    ""name"": ""Attack"",
                     ""type"": ""PassThrough"",
                     ""id"": ""2972765a-90eb-4ac5-8d37-d8f4a66bf110"",
                     ""expectedControlType"": ""Button"",
@@ -92,10 +92,10 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""91b8d449-8864-428d-aeae-7fb28d75d346"",
                     ""path"": ""<Keyboard>/f"",
-                    ""interactions"": """",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""RangedAttack"",
+                    ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -176,7 +176,7 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
         m_Player1 = asset.FindActionMap("Player1", throwIfNotFound: true);
         m_Player1_Move = m_Player1.FindAction("Move", throwIfNotFound: true);
         m_Player1_Jump = m_Player1.FindAction("Jump", throwIfNotFound: true);
-        m_Player1_RangedAttack = m_Player1.FindAction("RangedAttack", throwIfNotFound: true);
+        m_Player1_Attack = m_Player1.FindAction("Attack", throwIfNotFound: true);
         // Player2
         m_Player2 = asset.FindActionMap("Player2", throwIfNotFound: true);
         m_Player2_Move = m_Player2.FindAction("Move", throwIfNotFound: true);
@@ -232,14 +232,14 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
     private IPlayer1Actions m_Player1ActionsCallbackInterface;
     private readonly InputAction m_Player1_Move;
     private readonly InputAction m_Player1_Jump;
-    private readonly InputAction m_Player1_RangedAttack;
+    private readonly InputAction m_Player1_Attack;
     public struct Player1Actions
     {
         private @PlayerActionControls m_Wrapper;
         public Player1Actions(@PlayerActionControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player1_Move;
         public InputAction @Jump => m_Wrapper.m_Player1_Jump;
-        public InputAction @RangedAttack => m_Wrapper.m_Player1_RangedAttack;
+        public InputAction @Attack => m_Wrapper.m_Player1_Attack;
         public InputActionMap Get() { return m_Wrapper.m_Player1; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -255,9 +255,9 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                 @Jump.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnJump;
-                @RangedAttack.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnRangedAttack;
-                @RangedAttack.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnRangedAttack;
-                @RangedAttack.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnRangedAttack;
+                @Attack.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnAttack;
+                @Attack.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnAttack;
+                @Attack.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnAttack;
             }
             m_Wrapper.m_Player1ActionsCallbackInterface = instance;
             if (instance != null)
@@ -268,9 +268,9 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
-                @RangedAttack.started += instance.OnRangedAttack;
-                @RangedAttack.performed += instance.OnRangedAttack;
-                @RangedAttack.canceled += instance.OnRangedAttack;
+                @Attack.started += instance.OnAttack;
+                @Attack.performed += instance.OnAttack;
+                @Attack.canceled += instance.OnAttack;
             }
         }
     }
@@ -320,7 +320,7 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
-        void OnRangedAttack(InputAction.CallbackContext context);
+        void OnAttack(InputAction.CallbackContext context);
     }
     public interface IPlayer2Actions
     {
