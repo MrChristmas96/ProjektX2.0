@@ -8,6 +8,10 @@ public class Player2Controller : MonoBehaviour
     public float jumpSpeed;
     public LayerMask Ground;
 
+    public Transform attackPoint;
+    public float attackRange = 0.5f;
+    public LayerMask enemyLayers;
+
     public GameMaster gameMaster;
 
     private bool canDoubleJump = false;
@@ -35,6 +39,7 @@ public class Player2Controller : MonoBehaviour
     void Start()
     {
         player2ActionControls.Player2.Jump.performed += _ => Jump();
+        player2ActionControls.Player2.Attack.performed += _ => Attack();
     }
 
     private void Jump()
@@ -61,6 +66,24 @@ public class Player2Controller : MonoBehaviour
             canDoubleJump = false;
         }
 
+    }
+
+    private void Attack()
+    {
+        Debug.Log("Attacked");
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+
+        foreach (Collider2D enemy in hitEnemies)
+        {
+            Debug.Log("We hit enemy");
+            enemy.GetComponent<EnemyController>().TakeDamage();
+        }
+    }
+
+    //Laver en cirkel for at visualisere AttackRange
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 
     private bool IsGrounded()
