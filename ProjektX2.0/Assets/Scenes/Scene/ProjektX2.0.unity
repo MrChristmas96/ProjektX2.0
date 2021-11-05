@@ -1519,6 +1519,10 @@ PrefabInstance:
       propertyPath: attackPoint
       value: 
       objectReference: {fileID: 1489721924}
+    - target: {fileID: 895559634, guid: 2b3e851079303fb449a9b253f11bdb68, type: 3}
+      propertyPath: enemyLayers.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
     - target: {fileID: 9161871650751013098, guid: 2b3e851079303fb449a9b253f11bdb68, type: 3}
       propertyPath: m_RootOrder
       value: 5
