@@ -6,30 +6,56 @@ public class EnemyFollow : MonoBehaviour
 {
     public float speed;
     public float StoppingDistance;
+    private Transform p1;
+    private Transform p1House;
+    private Transform p2;
+    private Transform p2House;
     private Transform target;
-    private Transform target1;
 
     // Start is called before the first frame update
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player1").GetComponent<Transform>();
-        target1 = GameObject.FindGameObjectWithTag("house").GetComponent<Transform>();
+        p1 = GameObject.FindGameObjectWithTag("Player1").GetComponent<Transform>();
+        p1House = GameObject.FindGameObjectWithTag("P1House").GetComponent<Transform>();
+        p2 = GameObject.FindGameObjectWithTag("Player2").GetComponent<Transform>();
+        p2House = GameObject.FindGameObjectWithTag("P2House").GetComponent<Transform>();
+
+        if (transform.position.y >= 0)
+        {
+            target = p1House;
+        }
+        else if (transform.position.y < 0)
+        {
+            target = p2House;
+        }
+
+        /*
+        Vector2 xTarget = new Vector2(target.position.x, transform.position.y);
+        transform.position = Vector2.MoveTowards(transform.position, xTarget, moveSpeed * Time.deltaTime);
+        */
     }
-    
+
 
     // Update is called once per frame
     void Update()
     {
 
-        if(Vector2.Distance(transform.position, target.position) < StoppingDistance)
+        if (Vector2.Distance(transform.position, p1.position) < StoppingDistance)
         {
-           transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, p1.position, speed * Time.deltaTime);
+        }
+        else if (Vector2.Distance(transform.position, p2.position) < StoppingDistance)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, p2.position, speed * Time.deltaTime);
         }
         else
         {
-            if(Vector2.Distance(transform.position, target1.position) > 2.5)
-            transform.position = Vector2.MoveTowards(transform.position, target1.position, speed * Time.deltaTime);
+            if (Vector2.Distance(transform.position, target.position) > 2.5)
+                /*Vector2 xTarget = new Vector2(target.position.x, transform.position.y);
+                transform.position = Vector2.MoveTowards(transform.position, xTarget, speed * Time.deltaTime); */
+                transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         }
+
     }
 
 }
