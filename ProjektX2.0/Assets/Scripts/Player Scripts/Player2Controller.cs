@@ -12,6 +12,8 @@ public class Player2Controller : MonoBehaviour
     public float attackRange = 0.5f;
     public LayerMask enemyLayers;
 
+    public bool facingRight;
+
     public GameMaster gameMaster;
 
     private bool canDoubleJump = false;
@@ -126,6 +128,18 @@ public class Player2Controller : MonoBehaviour
 
         //Read movement value
         float movementInput = player2ActionControls.Player2.Move.ReadValue<float>();
+
+        //Flip player
+        if ((movementInput < 0 && facingRight))
+        {
+            facingRight = !facingRight;
+            transform.localScale = new Vector3(-0.4f, 0.4f, 0.4f);
+        }
+        else if (movementInput > 0 && !facingRight)
+        {
+            facingRight = true;
+            transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
+        }
 
         //Move player
         Vector3 currentPosition = transform.position;
