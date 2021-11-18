@@ -133,12 +133,12 @@ public class Player2Controller : MonoBehaviour
         if ((movementInput < 0 && facingRight))
         {
             facingRight = !facingRight;
-            transform.localScale = new Vector3(-0.4f, 0.4f, 0.4f);
+            transform.localScale = new Vector3(-1f, 1f, 1f);
         }
         else if (movementInput > 0 && !facingRight)
         {
             facingRight = true;
-            transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
+            transform.localScale = new Vector3(1f, 1f, 1f);
         }
 
         //Move player
