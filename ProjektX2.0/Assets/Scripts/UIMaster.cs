@@ -8,7 +8,9 @@ public class UIMaster : MonoBehaviour
 
     public Text p1PointsUI;
     public Text p2PointsUI;
+    public Image GameOver;
     public GameMaster gameMaster;
+    
    
     void Start()
     {

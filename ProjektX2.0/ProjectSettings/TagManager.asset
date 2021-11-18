@@ -13,6 +13,7 @@ TagManager:
   - PointDrop
   - P1House
   - P2House
+  - GameOver1
   layers:
   - Default
   - TransparentFX
