@@ -648,10 +648,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   p1Points: 0
   p2Points: 0
-  p1HouseHealth: 0
-  p2HouseHealth: 0
-  p1Health: 0
-  P2Health: 0
+  p1HouseHealth: 100
+  p2HouseHealth: 100
+  p1Health: 100
+  P2Health: 100
 --- !u!81 &1338656708
 AudioListener:
   m_ObjectHideFlags: 0
