@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player1Controller : MonoBehaviour
 {
@@ -51,19 +52,16 @@ public class Player1Controller : MonoBehaviour
         {
             Health = 0f;
             Debug.Log("respawn player");
-
-            GameOver();
-    
             
-            SceneManager.LoadScene("ProjektX2.0");
+            SceneManager.LoadScene("LooseScreen");
+
+            
+            
+            
         }
     }
 
-  
-    public void GameOver()
-    {
-       
-    }
+
 
 
     void Start()
