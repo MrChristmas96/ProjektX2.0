@@ -25,6 +25,8 @@ public class Player1Controller : MonoBehaviour
     private Rigidbody2D rb;
     private Collider2D col;
 
+    public ScreenShake screenShake;
+
     private void Awake()
     {
         player1ActionControls = new PlayerActionControls();
@@ -80,7 +82,9 @@ public class Player1Controller : MonoBehaviour
         {
             Debug.Log("We hit enemy");
             enemy.GetComponent<EnemyController>().TakeDamage();
+            StartCoroutine(screenShake.Shake(0.1f, 1f));
         }
+
     }
 
     //Laver en cirkel for at visualisere AttackRange
@@ -135,7 +139,7 @@ public class Player1Controller : MonoBehaviour
 
 
         //Flip player
-        if ((movementInput < 0 && facingRight ))
+        if (movementInput < 0 && facingRight )
         {
             facingRight = !facingRight;
             transform.localScale = new Vector3(-1f, 1f, 1f);
@@ -145,6 +149,7 @@ public class Player1Controller : MonoBehaviour
             facingRight = true;
             transform.localScale = new Vector3(1f, 1f, 1f);
         }
+
 
         //Move player
         Vector3 currentPosition = transform.position;

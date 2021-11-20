@@ -25,6 +25,8 @@ public class Player2Controller : MonoBehaviour
     private Rigidbody2D rb;
     private Collider2D col;
 
+    public ScreenShake screenShake;
+
     private void Awake()
     {
         player2ActionControls = new PlayerActionControls();
@@ -79,6 +81,7 @@ public class Player2Controller : MonoBehaviour
         {
             Debug.Log("We hit enemy");
             enemy.GetComponent<EnemyController>().TakeDamage();
+            StartCoroutine(screenShake.Shake(0.1f, 1f));
         }
     }
 
