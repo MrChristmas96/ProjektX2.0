@@ -96,11 +96,11 @@ public class Player2Controller : MonoBehaviour
         // Laver en boks omkring Player for at checke om den overlapper med ground layer
         Vector2 topLeftPoint = transform.position;
         topLeftPoint.x -= col.bounds.extents.x;
-        topLeftPoint.y += col.bounds.extents.y;
+        topLeftPoint.y += col.bounds.extents.y+3f;
 
         Vector2 bottomRightPoint = transform.position;
         bottomRightPoint.x += col.bounds.extents.x;
-        bottomRightPoint.y -= col.bounds.extents.y;
+        bottomRightPoint.y -= col.bounds.extents.y+3f;
 
         return Physics2D.OverlapArea(topLeftPoint, bottomRightPoint, Ground);
 
