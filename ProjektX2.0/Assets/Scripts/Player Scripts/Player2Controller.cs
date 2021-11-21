@@ -27,12 +27,15 @@ public class Player2Controller : MonoBehaviour
 
     public ScreenShake screenShake;
 
+    private Animator anim;
+
     private void Awake()
     {
         player2ActionControls = new PlayerActionControls();
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
         gameMaster = FindObjectOfType<GameMaster>();
+        anim = GetComponent<Animator>();
     }
 
     private void OnEnable()
@@ -74,7 +77,7 @@ public class Player2Controller : MonoBehaviour
 
     private void Attack()
     {
-        Debug.Log("Attacked");
+        anim.Play("P1Attack");
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
         foreach (Collider2D enemy in hitEnemies)
@@ -153,6 +156,8 @@ public class Player2Controller : MonoBehaviour
         {
             jumpTimer -= Time.deltaTime;
         }
+
+        anim.SetFloat("Speed", Mathf.Abs(movementInput));
     }
 
 }
