@@ -25,12 +25,17 @@ public class Player1Controller : MonoBehaviour
     private Rigidbody2D rb;
     private Collider2D col;
 
+    public ScreenShake screenShake;
+
+    private Animator anim;
+
     private void Awake()
     {
         player1ActionControls = new PlayerActionControls();
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
         gameMaster = FindObjectOfType<GameMaster>();
+        anim = GetComponent<Animator>();
     }
 
     private void OnEnable()
@@ -73,14 +78,16 @@ public class Player1Controller : MonoBehaviour
 
     private void Attack()
     {
-        Debug.Log("Attacked");
+        anim.Play("P1Attack");
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers );
 
         foreach(Collider2D enemy in hitEnemies)
         {
             Debug.Log("We hit enemy");
             enemy.GetComponent<EnemyController>().TakeDamage();
+            StartCoroutine(screenShake.Shake(0.1f, 1f));
         }
+
     }
 
     //Laver en cirkel for at visualisere AttackRange
@@ -94,11 +101,11 @@ public class Player1Controller : MonoBehaviour
         // Laver en boks omkring Player for at checke om den overlapper med ground layer
         Vector2 topLeftPoint = transform.position;
         topLeftPoint.x -= col.bounds.extents.x;
-        topLeftPoint.y += col.bounds.extents.y;
+        topLeftPoint.y += col.bounds.extents.y+3f;
 
         Vector2 bottomRightPoint = transform.position;
         bottomRightPoint.x += col.bounds.extents.x;
-        bottomRightPoint.y -= col.bounds.extents.y;
+        bottomRightPoint.y -= col.bounds.extents.y+3f;
 
         return Physics2D.OverlapArea(topLeftPoint, bottomRightPoint, Ground);
 
@@ -135,7 +142,7 @@ public class Player1Controller : MonoBehaviour
 
 
         //Flip player
-        if ((movementInput < 0 && facingRight ))
+        if (movementInput < 0 && facingRight )
         {
             facingRight = !facingRight;
             transform.localScale = new Vector3(-1f, 1f, 1f);
@@ -145,6 +152,7 @@ public class Player1Controller : MonoBehaviour
             facingRight = true;
             transform.localScale = new Vector3(1f, 1f, 1f);
         }
+
 
         //Move player
         Vector3 currentPosition = transform.position;
@@ -156,6 +164,7 @@ public class Player1Controller : MonoBehaviour
             jumpTimer -= Time.deltaTime;
         }
 
+        anim.SetFloat("Speed", Mathf.Abs(movementInput));
     }
 
 }
