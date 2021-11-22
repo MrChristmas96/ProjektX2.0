@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameMaster : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class GameMaster : MonoBehaviour
     public float p1Health = 100f;
     public float P2Health = 100f;
 
+    public bool GameOver = false;
 
     public void P1PointGain()
     {
@@ -28,4 +30,7 @@ public class GameMaster : MonoBehaviour
     {
 
     }
+
+
+
 }

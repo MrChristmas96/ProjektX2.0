@@ -11,6 +11,9 @@ public class EnemyFollow : MonoBehaviour
     private Transform p2;
     private Transform p2House;
     private Transform target;
+    [SerializeField] private float attackDamage = 10f;
+    [SerializeField] private float attackSpeed = 20f;
+    private float CanAttack;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +37,21 @@ public class EnemyFollow : MonoBehaviour
         transform.position = Vector2.MoveTowards(transform.position, xTarget, moveSpeed * Time.deltaTime);
         */
     }
-
+    void OnCollisionStay2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Player1")
+        {
+            if(attackSpeed<= CanAttack) 
+               { 
+                 other.gameObject.GetComponent<Player1Controller>().UpdateHealth(-attackDamage);
+                CanAttack = 0f;
+               }
+            else
+            {
+                CanAttack += Time.deltaTime;
+            }
+        }          
+    }
 
     // Update is called once per frame
     void Update()

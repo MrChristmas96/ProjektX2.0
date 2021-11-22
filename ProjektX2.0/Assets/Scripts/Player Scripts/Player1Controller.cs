@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player1Controller : MonoBehaviour
 {
@@ -20,6 +22,9 @@ public class Player1Controller : MonoBehaviour
     private float doubleJumpDelay = .3f;
     public float jumpTimer = 0f;
     private bool extraJumpBoost = false;
+    private float Health = 0f;
+    [SerializeField] private float maxHealth = 100f; 
+    
 
     private PlayerActionControls player1ActionControls;
     private Rigidbody2D rb;
@@ -43,11 +48,35 @@ public class Player1Controller : MonoBehaviour
         player1ActionControls.Enable();
     }
 
+    public void UpdateHealth(float mod)
+    {
+        Health += mod;
+        if(Health > maxHealth)
+        {
+            Health = maxHealth;
+        }
+        else if (Health <= 0f)
+        {
+            Health = 0f;
+            Debug.Log("respawn player");
+            
+            SceneManager.LoadScene("LooseScreen");
+
+            
+            
+            
+        }
+    }
+
+
+
+
     void Start()
     {
         // Tilføjer inputs
         player1ActionControls.Player1.Jump.performed += _ => Jump();
         player1ActionControls.Player1.Attack.performed += _ => Attack();
+        Health = maxHealth;
     }
 
     private void Jump()

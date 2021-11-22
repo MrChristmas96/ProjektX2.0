@@ -17,6 +17,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+
     //Disable og ikke destroy så vi kan efterlade lig på banen.
     private void OnDisable()
     {
