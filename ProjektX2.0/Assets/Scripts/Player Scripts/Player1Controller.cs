@@ -34,7 +34,9 @@ public class Player1Controller : MonoBehaviour
 
     private Animator anim;
 
-    public int comboCounter = 0;
+    private int comboCounter = 0;
+    private float attackTime;
+    private float attackCooldown = 0.25f;
 
     private void Awake()
     {
@@ -66,8 +68,6 @@ public class Player1Controller : MonoBehaviour
 
         }
     }
-
-
 
 
     void Start()
@@ -106,15 +106,51 @@ public class Player1Controller : MonoBehaviour
 
     private void Attack()
     {
-        anim.Play("P1Attack");
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers );
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
-        foreach(Collider2D enemy in hitEnemies)
+        if(Time.time > attackTime)
         {
-            enemy.GetComponent<EnemyController>().TakeDamage();
-            StartCoroutine(screenShake.Shake(0.1f, 1f));
-        }
+            if(Time.time > attackTime + 0.5f)
+            {
+                comboCounter = 0;
+            }
 
+
+            if (comboCounter == 0)
+            {
+                attackTime = Time.time + attackCooldown;
+                comboCounter++;
+                anim.Play("P1Attack");
+                foreach (Collider2D enemy in hitEnemies)
+                {
+                    enemy.GetComponent<EnemyController>().TakeDamage(50);
+                    StartCoroutine(screenShake.Shake(0.1f, 1f));
+                }
+            }
+            else if (comboCounter == 1)
+            {
+                attackTime = Time.time + attackCooldown;
+                comboCounter++;
+                anim.Play("P1Attack2");
+                foreach (Collider2D enemy in hitEnemies)
+                {
+                    enemy.GetComponent<EnemyController>().TakeDamage(75);
+                    StartCoroutine(screenShake.Shake(0.1f, 1f));
+                }
+            }
+            else if (comboCounter == 2)
+            {
+                attackTime = Time.time + attackCooldown + 0.5f;
+                comboCounter = 0;
+                anim.Play("P1Attack3");
+                foreach (Collider2D enemy in hitEnemies)
+                {
+                    enemy.GetComponent<EnemyController>().TakeDamage(100);
+                    StartCoroutine(screenShake.Shake(0.1f, 1f));
+                }
+            }
+        }
+        
     }
 
     //Laver en cirkel for at visualisere AttackRange
@@ -151,9 +187,7 @@ public class Player1Controller : MonoBehaviour
     {
         //Checker om player skal bruge et extra boost til jump hvis y velocity bliver for "stor"
         float velY = rb.velocity.y;
-        
-        
-        
+
         if (velY < -11f)
         {
             extraJumpBoost = true;

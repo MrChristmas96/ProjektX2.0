@@ -27,8 +27,8 @@ public class EnemyController : MonoBehaviour
         Instantiate(pointDrop, transform.position, Quaternion.identity);
     }
 
-    public void TakeDamage()
+    public void TakeDamage(int i)
     {
-        enemyHealth -= 50;
+        enemyHealth -= i;
     }
 }
