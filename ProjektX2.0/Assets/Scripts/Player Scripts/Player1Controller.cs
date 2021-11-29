@@ -34,6 +34,8 @@ public class Player1Controller : MonoBehaviour
 
     private Animator anim;
 
+    public int comboCounter = 0;
+
     private void Awake()
     {
         player1ActionControls = new PlayerActionControls();
@@ -62,9 +64,6 @@ public class Player1Controller : MonoBehaviour
             
             SceneManager.LoadScene("LooseScreen");
 
-            
-            
-            
         }
     }
 
@@ -112,7 +111,6 @@ public class Player1Controller : MonoBehaviour
 
         foreach(Collider2D enemy in hitEnemies)
         {
-            Debug.Log("We hit enemy");
             enemy.GetComponent<EnemyController>().TakeDamage();
             StartCoroutine(screenShake.Shake(0.1f, 1f));
         }
