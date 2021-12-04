@@ -580,9 +580,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 2709688927502260320, guid: bc5f5e2d9cca1544e94b9cf30548d4d5, type: 3}
   waves:
-  - name: Wave:1
+  - name: Wave1
     enemy: {fileID: 2709688927502260320, guid: bc5f5e2d9cca1544e94b9cf30548d4d5, type: 3}
-    rate: 1
+    rate: 4
   spawnPoints:
   - {fileID: 317023356}
   - {fileID: 1039826015}

@@ -110,6 +110,7 @@ public class Player1Controller : MonoBehaviour
 
         if(Time.time > attackTime)
         {
+            //reset combo counter hvis man ikke angriber
             if(Time.time > attackTime + 0.5f)
             {
                 comboCounter = 0;

@@ -15,7 +15,6 @@ public class EnemyFollow : MonoBehaviour
     [SerializeField] private float attackSpeed = 20f;
     private float CanAttack;
 
-    // Start is called before the first frame update
     void Start()
     {
         p1 = GameObject.FindGameObjectWithTag("Player1").GetComponent<Transform>();
@@ -32,10 +31,6 @@ public class EnemyFollow : MonoBehaviour
             target = p2House;
         }
 
-        /*
-        Vector2 xTarget = new Vector2(target.position.x, transform.position.y);
-        transform.position = Vector2.MoveTowards(transform.position, xTarget, moveSpeed * Time.deltaTime);
-        */
     }
     void OnCollisionStay2D(Collision2D other)
     {
@@ -53,7 +48,6 @@ public class EnemyFollow : MonoBehaviour
         }          
     }
 
-    // Update is called once per frame
     void Update()
     {
 
@@ -68,8 +62,6 @@ public class EnemyFollow : MonoBehaviour
         else
         {
             if (Vector2.Distance(transform.position, target.position) > 2.5)
-                /*Vector2 xTarget = new Vector2(target.position.x, transform.position.y);
-                transform.position = Vector2.MoveTowards(transform.position, xTarget, speed * Time.deltaTime); */
                 transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         }
 
