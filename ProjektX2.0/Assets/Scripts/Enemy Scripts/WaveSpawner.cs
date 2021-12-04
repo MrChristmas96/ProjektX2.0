@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
+
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -33,7 +35,10 @@ public class WaveSpawner : MonoBehaviour
     public SpawnState state = SpawnState.COUNTING;
 
     public int enemyP1 = 0;
-    public int enemyP2 = 0; 
+    public int enemyP2 = 0;
+
+    private float spawnSendP1;
+    private float spawnSendP2;
 
     private void Start()
     {
@@ -43,16 +48,14 @@ public class WaveSpawner : MonoBehaviour
 
     private void Update()
     {
-        if (enemyP1 > 0)
+        if (Time.time > spawnSendP1 && enemyP1 > 0)
         {
             SpawnSendEnemyP1();
-            Debug.Log("Send EnemyP1");
         }
 
-        if (enemyP2 > 0)
+        if (Time.time > spawnSendP2 && enemyP2 > 0)
         {
             SpawnSendEnemyP2();
-            Debug.Log("Send EnemyP2");
         }
 
         if (state == SpawnState.WAITING)
@@ -150,23 +153,18 @@ public class WaveSpawner : MonoBehaviour
 
     void SpawnSendEnemyP1()
     {
-        for (int i = 0; i < enemyP1; i++)
-        {
-            Transform _sp = spawnPoints[Random.Range(2, 4)];
-            Instantiate(enemy, _sp.position, _sp.rotation);
-            Debug.Log("SpawnSendEnemy");
-            enemyP1--;
-        }
+        Transform _sp = spawnPoints[Random.Range(2, 4)];
+        Instantiate(enemy, _sp.position, _sp.rotation);
+        enemyP1--;
+        spawnSendP1 = Time.time + Random.Range(0.2f, 1.2f);
     }
+
     void SpawnSendEnemyP2()
     {
-        for (int i = 0; i < enemyP2; i++)
-        {
-            Transform _sp = spawnPoints[Random.Range(0, 2)];
-            Instantiate(enemy, _sp.position, _sp.rotation);
-            Debug.Log("SpawnSendEnemy");
-            enemyP2--;
-        }
+        Transform _sp = spawnPoints[Random.Range(0, 2)];
+        Instantiate(enemy, _sp.position, _sp.rotation);
+        enemyP2--;
+        spawnSendP2 = Time.time + Random.Range(0.2f, 1.2f);
     }
 
 
