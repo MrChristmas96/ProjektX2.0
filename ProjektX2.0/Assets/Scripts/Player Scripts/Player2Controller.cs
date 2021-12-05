@@ -33,7 +33,7 @@ public class Player2Controller : MonoBehaviour
 
     private int comboCounter = 0;
     private float attackTime;
-    private float attackCooldown = 0.25f;
+    private float attackCooldown = 0.2f;
 
 
     private void Awake()
