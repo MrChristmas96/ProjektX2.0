@@ -136,6 +136,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointDrop: {fileID: 3109080846801636736, guid: 6e68079566dc01645902835ea27d8f85, type: 3}
   enemyHealth: 100
+  hit: {fileID: 2204603645861867133, guid: 2be30ad3103d5804cbfc8231583b5143, type: 3}
+  blood: {fileID: 5072110392913133923, guid: 777c79181b9669c4f8d306558532e208, type: 3}
 --- !u!70 &7438409472522673224
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
