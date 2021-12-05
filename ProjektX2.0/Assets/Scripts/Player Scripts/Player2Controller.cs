@@ -27,6 +27,8 @@ public class Player2Controller : MonoBehaviour
 
     public ScreenShake screenShake;
 
+    public Camera cameraP2;
+
     private Animator anim;
 
     private int comboCounter = 0;
@@ -181,11 +183,13 @@ public class Player2Controller : MonoBehaviour
         {
             facingRight = !facingRight;
             transform.localScale = new Vector3(-1f, 1f, 1f);
+            cameraP2.transform.localScale = new Vector3(-2, 1, 1);
         }
         else if (movementInput > 0 && !facingRight)
         {
             facingRight = true;
             transform.localScale = new Vector3(1f, 1f, 1f);
+            cameraP2.transform.localScale = new Vector3(2, 1, 1);
         }
 
         //Move player

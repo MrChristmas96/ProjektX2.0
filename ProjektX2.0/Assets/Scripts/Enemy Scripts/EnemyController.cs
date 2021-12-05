@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Threading;
 
 public class EnemyController : MonoBehaviour
 {
@@ -44,6 +45,7 @@ public class EnemyController : MonoBehaviour
         HitEffect(hit);
         BloodEffect(blood);
         enemyHealth -= i;
+        Thread.Sleep(20);
     }
     
     public void HitEffect(ParticleSystem hit)
