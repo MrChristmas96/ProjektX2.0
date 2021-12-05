@@ -62,7 +62,6 @@ public class EnemyController : MonoBehaviour
         {
             bloodPlay = Instantiate(blood, transform.position, Quaternion.identity);
         }
-
         blood.Play();
     }
 }
