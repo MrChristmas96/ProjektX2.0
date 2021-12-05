@@ -31,6 +31,7 @@ public class Player1Controller : MonoBehaviour
     private Collider2D col;
 
     public ScreenShake screenShake;
+    public Camera cameraP1;
 
     private Animator anim;
 
@@ -208,11 +209,13 @@ public class Player1Controller : MonoBehaviour
         {
             facingRight = !facingRight;
             transform.localScale = new Vector3(-1f, 1f, 1f);
+            cameraP1.transform.localScale = new Vector3(-2, 1, 1);
         }
         else if (movementInput > 0 && !facingRight)
         {
             facingRight = true;
             transform.localScale = new Vector3(1f, 1f, 1f);
+            cameraP1.transform.localScale = new Vector3(2, 1, 1);
         }
 
 
