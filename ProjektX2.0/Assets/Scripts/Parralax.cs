@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Parralax : MonoBehaviour
 {
-
+    //Udkommenteret kode er for "Repeat Background"
     //private float length, startpos;
     private float startpos;
     public GameObject cam;
@@ -24,7 +24,7 @@ public class Parralax : MonoBehaviour
 
         transform.position = new Vector3(startpos + dist, transform.position.y, transform.position.z);
 
-        //Repeat Background
+        
         /*
         if (temp > startpos + length)
         {
