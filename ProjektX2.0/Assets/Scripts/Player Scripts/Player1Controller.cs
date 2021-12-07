@@ -21,8 +21,6 @@ public class Player1Controller : MonoBehaviour
     private float doubleJumpDelay = .3f;
     public float jumpTimer = 0f;
     private bool extraJumpBoost = false;
-    private float Health = 0f;
-    [SerializeField] private float maxHealth = 100f; 
     
 
     private PlayerActionControls player1ActionControls;
@@ -58,7 +56,6 @@ public class Player1Controller : MonoBehaviour
         // Tilføjer inputs
         player1ActionControls.Player1.Jump.performed += _ => Jump();
         player1ActionControls.Player1.Attack.performed += _ => Attack();
-        Health = maxHealth;
 
         Physics2D.queriesHitTriggers = false;
     }

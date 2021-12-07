@@ -16,9 +16,13 @@ public class EnemyController : MonoBehaviour
     public float speed;
     public float StoppingDistance;
 
+    public LayerMask playerLayer;
     [SerializeField] private float attackDamage = 10f;
     [SerializeField] private float attackSpeed = 20f;
     private float CanAttack;
+
+    public Transform attackPoint;
+    public float attackRange = 0.5f;
 
     public GameObject pointDrop;
 
@@ -61,46 +65,60 @@ public class EnemyController : MonoBehaviour
         if (Vector2.Distance(transform.position, p1.position) < StoppingDistance)
         {
             transform.position = Vector2.MoveTowards(transform.position, p1.position, speed * Time.deltaTime);
+            
+            //Flip Player mod spiller
+            if (p1.transform.position.x > transform.position.x)
+            {
+                transform.localScale = new Vector3(0.4f, 0.4f, 1f);
+            }
+            else
+            {
+                transform.localScale = new Vector3(-0.4f, 0.4f, 1f);
+            }
         }
         else if (Vector2.Distance(transform.position, p2.position) < StoppingDistance)
         {
             transform.position = Vector2.MoveTowards(transform.position, p2.position, speed * Time.deltaTime);
+
+            if (p2.transform.position.x > transform.position.x)
+            {
+                transform.localScale = new Vector3(0.4f, 0.4f, 1f);
+            }
+            else
+            {
+                transform.localScale = new Vector3(-0.4f, 0.4f, 1f);
+            }
         }
+
         else //Move to house
         {
             if (Vector2.Distance(transform.position, target.position) > 2.5)
                 transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+            FlipEnemy();
         }
 
         if (enemyHealth <= 0)
         {
             gameObject.SetActive(false);
         }
+        
     }
 
     private void OnTriggerStay2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player1" || other.gameObject.tag == "Player2")
         {
+
             if (attackSpeed <= CanAttack)
             {
+
                 anim.Play("YetiAttack1");
-
-                if (other.gameObject.tag == "Player1")
-                {
-                    gameMaster.P1takeDamage(attackDamage*2);
-                }
-
-                if (other.gameObject.tag == "Player2")
-                {
-                    gameMaster.P2takeDamage(attackDamage*2);
-                }
-
                 CanAttack = 0f;
             }
             else
             {
                 CanAttack += Time.deltaTime;
+
             }
         }
 
@@ -109,23 +127,65 @@ public class EnemyController : MonoBehaviour
             if (attackSpeed <= CanAttack)
             {
                 anim.Play("YetiAttack1");
-
-                if (other.gameObject.tag == "P1House")
-                {
-                    gameMaster.P1HousetakeDamage(attackDamage);
-                }
-
-                if (other.gameObject.tag == "P2House")
-                {
-                    gameMaster.P2HousetakeDamage(attackDamage);
-                }
-
                 CanAttack = 0f;
             }
             else
             {
                 CanAttack += Time.deltaTime;
             }
+        }
+    }
+
+    //Bliver kaldt af en event i YetiAttack1
+    private void Attack()
+    {
+        
+       Collider2D[] hitPlayer = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
+
+
+        for (int i = 0; i < hitPlayer.Length; i++)
+        {
+
+
+            if (hitPlayer[i].tag == "Player1")
+            {
+                gameMaster.P1takeDamage(attackDamage * 2);
+            }
+
+            else if (hitPlayer[i].tag == "Player2")
+            {
+                gameMaster.P2takeDamage(attackDamage * 2);
+            }
+                            
+            else if (hitPlayer[i].tag == "P1House")
+            {
+                gameMaster.P1HousetakeDamage(attackDamage);
+            }
+
+            else if (hitPlayer[i].tag == "P2House")
+            {
+                gameMaster.P2HousetakeDamage(attackDamage);
+            }
+                
+        }
+      
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
+
+    void FlipEnemy()
+    {
+        //Flip Enemy mod hus
+        if (target.transform.position.x > transform.position.x)
+        {
+            transform.localScale = new Vector3(0.4f, 0.4f, 1f);
+        }
+        else
+        {
+            transform.localScale = new Vector3(-0.4f, 0.4f, 1f);
         }
     }
 
