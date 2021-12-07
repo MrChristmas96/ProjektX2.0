@@ -54,6 +54,8 @@ public class Player2Controller : MonoBehaviour
     {
         player2ActionControls.Player2.Jump.performed += _ => Jump();
         player2ActionControls.Player2.Attack.performed += _ => Attack();
+
+        Physics2D.queriesHitTriggers = false;
     }
 
     private void Jump()
