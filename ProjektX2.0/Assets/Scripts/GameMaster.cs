@@ -9,8 +9,8 @@ public class GameMaster : MonoBehaviour
     public int p1Points;
     public int p2Points;
 
-    public int p1HouseHealth;
-    public int p2HouseHealth;
+    public float p1HouseHealth;
+    public float p2HouseHealth;
 
     public float p1Health = 100f;
     public float p2Health = 100f;
@@ -45,6 +45,32 @@ public class GameMaster : MonoBehaviour
         p2Health -= i;
 
         if (p2Health <= 0f)
+        {
+            Debug.Log("Player 2 died");
+
+            SceneManager.LoadScene("LooseScreen");
+
+        }
+    }
+
+    public void P1HousetakeDamage(float i)
+    {
+        p1HouseHealth -= i;
+
+        if (p1HouseHealth <= 0f)
+        {
+            Debug.Log("Player 1 died");
+
+            SceneManager.LoadScene("LooseScreen");
+
+        }
+    }
+
+    public void P2HousetakeDamage(float i)
+    {
+        p2HouseHealth -= i;
+
+        if (p2HouseHealth <= 0f)
         {
             Debug.Log("Player 2 died");
 

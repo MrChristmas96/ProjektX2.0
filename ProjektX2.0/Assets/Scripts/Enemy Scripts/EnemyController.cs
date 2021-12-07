@@ -88,12 +88,36 @@ public class EnemyController : MonoBehaviour
 
                 if (other.gameObject.tag == "Player1")
                 {
-                    gameMaster.P1takeDamage(attackDamage);
+                    gameMaster.P1takeDamage(attackDamage*2);
                 }
 
                 if (other.gameObject.tag == "Player2")
                 {
-                    gameMaster.P2takeDamage(attackDamage);
+                    gameMaster.P2takeDamage(attackDamage*2);
+                }
+
+                CanAttack = 0f;
+            }
+            else
+            {
+                CanAttack += Time.deltaTime;
+            }
+        }
+
+        if (other.gameObject.tag == "P1House" || other.gameObject.tag == "P2House")
+        {
+            if (attackSpeed <= CanAttack)
+            {
+                anim.Play("YetiAttack1");
+
+                if (other.gameObject.tag == "P1House")
+                {
+                    gameMaster.P1HousetakeDamage(attackDamage);
+                }
+
+                if (other.gameObject.tag == "P2House")
+                {
+                    gameMaster.P2HousetakeDamage(attackDamage);
                 }
 
                 CanAttack = 0f;
