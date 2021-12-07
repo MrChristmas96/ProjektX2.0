@@ -77,6 +77,8 @@ public class Player1Controller : MonoBehaviour
         player1ActionControls.Player1.Jump.performed += _ => Jump();
         player1ActionControls.Player1.Attack.performed += _ => Attack();
         Health = maxHealth;
+
+        Physics2D.queriesHitTriggers = false;
     }
 
     private void Jump()
@@ -109,7 +111,7 @@ public class Player1Controller : MonoBehaviour
     {
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
-        if(Time.time > attackTime)
+        if (Time.time > attackTime)
         {
             //reset combo counter hvis man ikke angriber
             if(Time.time > attackTime + 0.5f)
@@ -123,7 +125,7 @@ public class Player1Controller : MonoBehaviour
                 attackTime = Time.time + attackCooldown;
                 comboCounter++;
                 anim.Play("P1Attack");
-                foreach (Collider2D enemy in hitEnemies)
+                foreach (BoxCollider2D enemy in hitEnemies)
                 {
                     enemy.GetComponent<EnemyController>().TakeDamage(50);
                     StartCoroutine(screenShake.Shake(0.1f, 1f));
@@ -134,7 +136,7 @@ public class Player1Controller : MonoBehaviour
                 attackTime = Time.time + attackCooldown;
                 comboCounter++;
                 anim.Play("P1Attack2");
-                foreach (Collider2D enemy in hitEnemies)
+                foreach (BoxCollider2D enemy in hitEnemies)
                 {
                     enemy.GetComponent<EnemyController>().TakeDamage(75);
                     StartCoroutine(screenShake.Shake(0.1f, 1f));
@@ -145,7 +147,7 @@ public class Player1Controller : MonoBehaviour
                 attackTime = Time.time + attackCooldown + 0.5f;
                 comboCounter = 0;
                 anim.Play("P1Attack3");
-                foreach (Collider2D enemy in hitEnemies)
+                foreach (BoxCollider2D enemy in hitEnemies)
                 {
                     enemy.GetComponent<EnemyController>().TakeDamage(100);
                     StartCoroutine(screenShake.Shake(0.1f, 1f));
