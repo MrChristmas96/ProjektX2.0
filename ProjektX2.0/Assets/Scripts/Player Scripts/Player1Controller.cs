@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Player1Controller : MonoBehaviour
@@ -51,23 +50,6 @@ public class Player1Controller : MonoBehaviour
     private void OnEnable()
     {
         player1ActionControls.Enable();
-    }
-
-    public void UpdateHealth(float mod)
-    {
-        Health += mod;
-        if(Health > maxHealth)
-        {
-            Health = maxHealth;
-        }
-        else if (Health <= 0f)
-        {
-            Health = 0f;
-            Debug.Log("respawn player");
-            
-            SceneManager.LoadScene("LooseScreen");
-
-        }
     }
 
 

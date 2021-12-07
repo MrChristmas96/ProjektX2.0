@@ -80,13 +80,22 @@ public class EnemyController : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player1")
+        if (other.gameObject.tag == "Player1" || other.gameObject.tag == "Player2")
         {
             if (attackSpeed <= CanAttack)
             {
-                Debug.Log("Enemy Attack");
                 anim.Play("YetiAttack1");
-                other.gameObject.GetComponent<Player1Controller>().UpdateHealth(-attackDamage);
+
+                if (other.gameObject.tag == "Player1")
+                {
+                    gameMaster.P1takeDamage(attackDamage);
+                }
+
+                if (other.gameObject.tag == "Player2")
+                {
+                    gameMaster.P2takeDamage(attackDamage);
+                }
+
                 CanAttack = 0f;
             }
             else

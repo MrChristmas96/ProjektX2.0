@@ -33,22 +33,7 @@ public class BossFollow : MonoBehaviour
         }
 
     }
-    void OnCollisionStay2D(Collision2D other)
-    {
-        if (other.gameObject.tag == "Player1")
-        {
-            if (attackSpeed <= CanAttack)
-            {
-                //Play Attack animation måske 1 ud af 3 tilfældige
-                other.gameObject.GetComponent<Player1Controller>().UpdateHealth(-attackDamage);
-                CanAttack = 0f;
-            }
-            else
-            {
-                CanAttack += Time.deltaTime;
-            }
-        }
-    }
+
 
     void Update()
     {

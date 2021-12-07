@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameMaster : MonoBehaviour
@@ -12,7 +13,7 @@ public class GameMaster : MonoBehaviour
     public int p2HouseHealth;
 
     public float p1Health = 100f;
-    public float P2Health = 100f;
+    public float p2Health = 100f;
 
     public bool GameOver = false;
 
@@ -26,9 +27,30 @@ public class GameMaster : MonoBehaviour
         p2Points++;
     }
 
-    public void P1takeDamage()
+    public void P1takeDamage(float i)
     {
+        p1Health -= i;
 
+        if (p1Health <= 0f)
+        {
+            Debug.Log("Player 1 died");
+
+            SceneManager.LoadScene("LooseScreen");
+
+        }
+    }
+
+    public void P2takeDamage(float i)
+    {
+        p2Health -= i;
+
+        if (p2Health <= 0f)
+        {
+            Debug.Log("Player 2 died");
+
+            SceneManager.LoadScene("LooseScreen");
+
+        }
     }
 
 
