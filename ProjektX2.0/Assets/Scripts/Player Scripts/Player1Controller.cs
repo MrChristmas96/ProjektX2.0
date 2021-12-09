@@ -30,6 +30,7 @@ public class Player1Controller : MonoBehaviour
     public ScreenShake screenShake;
     public Camera cameraP1;
 
+    public Transform player;
     private Animator anim;
 
     private int comboCounter = 0;
@@ -42,7 +43,7 @@ public class Player1Controller : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
         gameMaster = FindObjectOfType<GameMaster>();
-        anim = GetComponent<Animator>();
+        anim = player.GetComponent<Animator>();
     }
 
     private void OnEnable()
@@ -103,7 +104,7 @@ public class Player1Controller : MonoBehaviour
             {
                 attackTime = Time.time + attackCooldown;
                 comboCounter++;
-                anim.Play("P1Attack");
+                anim.Play("P1CyberVikingAttack1");
                 foreach (BoxCollider2D enemy in hitEnemies)
                 {
                     enemy.GetComponent<EnemyController>().TakeDamage(50);
@@ -114,7 +115,7 @@ public class Player1Controller : MonoBehaviour
             {
                 attackTime = Time.time + attackCooldown;
                 comboCounter++;
-                anim.Play("P1Attack2");
+                anim.Play("P1CyberVikingAttack1");
                 foreach (BoxCollider2D enemy in hitEnemies)
                 {
                     enemy.GetComponent<EnemyController>().TakeDamage(75);
@@ -125,7 +126,7 @@ public class Player1Controller : MonoBehaviour
             {
                 attackTime = Time.time + attackCooldown + 0.5f;
                 comboCounter = 0;
-                anim.Play("P1Attack3");
+                anim.Play("P1CyberVikingAttack1");
                 foreach (BoxCollider2D enemy in hitEnemies)
                 {
                     enemy.GetComponent<EnemyController>().TakeDamage(100);
@@ -189,13 +190,13 @@ public class Player1Controller : MonoBehaviour
         if (movementInput < 0 && facingRight )
         {
             facingRight = !facingRight;
-            transform.localScale = new Vector3(-1f, 1f, 1f);
+            transform.localScale = new Vector3(-0.8f, 0.8f, 1f);
             cameraP1.transform.localScale = new Vector3(-2, 1, 1);
         }
         else if (movementInput > 0 && !facingRight)
         {
             facingRight = true;
-            transform.localScale = new Vector3(1f, 1f, 1f);
+            transform.localScale = new Vector3(0.8f, 0.8f, 1f);
             cameraP1.transform.localScale = new Vector3(2, 1, 1);
         }
 

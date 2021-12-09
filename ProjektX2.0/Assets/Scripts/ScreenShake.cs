@@ -7,7 +7,7 @@ public class ScreenShake : MonoBehaviour
 
     public IEnumerator Shake(float duration, float magnitude)
     {
-        Vector3 originalPos = new Vector3(0, 3, -25);
+        Vector3 originalPos = new Vector3(0, 8, -25);
 
         float elapsed = 0.0f;
 
