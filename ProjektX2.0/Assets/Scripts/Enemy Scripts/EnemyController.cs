@@ -136,7 +136,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    //Bliver kaldt af en event i YetiAttack1
+    //Bliver kaldt af en event i YetiAttack1 I Animation Unity
     private void Attack()
     {
         
@@ -171,11 +171,12 @@ public class EnemyController : MonoBehaviour
       
     }
 
+    
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
-
+    
     void FlipEnemy()
     {
         //Flip Enemy mod hus
@@ -214,6 +215,7 @@ public class EnemyController : MonoBehaviour
             hitPlay = Instantiate(hit, transform.position, Quaternion.identity);
         }
         hitPlay.Play();
+
     }
 
     public void BloodEffect(ParticleSystem blood)
