@@ -10812,4 +10812,6 @@ ScriptedImporter:
   textureAssetName: CyberVikingFinal Texture
   prefabAssetName: CyberVikingFinal Prefab
   spriteLibAssetName: CyberVikingFinal Sprite Lib
-  secondarySpriteTextures: []
+  secondarySpriteTextures:
+  - name: _Emission
+    texture: {fileID: -9096245527201978547, guid: cff27e6afc0cc9a4e863ac32717b6ea9, type: 3}
