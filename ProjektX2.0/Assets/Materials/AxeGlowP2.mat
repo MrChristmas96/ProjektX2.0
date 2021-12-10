@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: AxeHead
-  m_Shader: {fileID: -6465566751694194690, guid: f1e3cd13b28d7ca4fad2fe682db66189, type: 3}
+  m_Name: AxeGlowP2
+  m_Shader: {fileID: -6465566751694194690, guid: 264a9a5648d28234d9fd9cc0ac2862ab, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -21,10 +21,6 @@ Material:
     m_TexEnvs:
     - _Emission:
         m_Texture: {fileID: 2800000, guid: ecad4f5306291f249986b3b697dd5566, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: eafbcacf3a46eef4cb0d82d048048a7a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MianTex:
@@ -45,6 +41,5 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats: []
     m_Colors:
-    - Color_59250af459fa4ceebc1a0e42be7a4c49: {r: 1024, g: 0, b: 754.94904, a: 0}
-    - Color_63a4e7ff0a6844c3b1175513e9ab5071: {r: 0.006026864, g: 1, b: 0, a: 0}
+    - Color_63a4e7ff0a6844c3b1175513e9ab5071: {r: 8.031373, g: 766.9961, b: 0, a: 0}
   m_BuildTextureStacks: []
