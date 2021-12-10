@@ -115,7 +115,7 @@ public class Player1Controller : MonoBehaviour
             {
                 attackTime = Time.time + attackCooldown;
                 comboCounter++;
-                anim.Play("P1CyberVikingAttack1");
+                anim.Play("P1CyberVikingAttack2");
                 foreach (BoxCollider2D enemy in hitEnemies)
                 {
                     enemy.GetComponent<EnemyController>().TakeDamage(75);
@@ -126,7 +126,7 @@ public class Player1Controller : MonoBehaviour
             {
                 attackTime = Time.time + attackCooldown + 0.5f;
                 comboCounter = 0;
-                anim.Play("P1CyberVikingAttack1");
+                anim.Play("P1CyberVikingAttack3");
                 foreach (BoxCollider2D enemy in hitEnemies)
                 {
                     enemy.GetComponent<EnemyController>().TakeDamage(100);
