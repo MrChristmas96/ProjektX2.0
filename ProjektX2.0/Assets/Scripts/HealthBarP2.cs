@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class HealthBarScript : MonoBehaviour
+public class HealthBarP2 : MonoBehaviour
 {
 
     private Image HealthBar;
@@ -14,12 +14,12 @@ public class HealthBarScript : MonoBehaviour
     {
         HealthBar = GetComponent<Image>();
         GM = FindObjectOfType<GameMaster>();
-        MaxHealth = GM.p1Health;
+        MaxHealth = GM.p2Health;
     }
 
     private void Update()
     {
-        currentHealth = GM.p1Health;
+        currentHealth = GM.p2Health;
         HealthBar.fillAmount = currentHealth / MaxHealth;
     }
 
