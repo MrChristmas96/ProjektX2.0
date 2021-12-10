@@ -2085,8 +2085,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Father: {fileID: 939446646}
   m_RootOrder: 0
+=======
+  m_Father: {fileID: 1845125844}
+  m_RootOrder: 5
+>>>>>>> 807d6889464f64a8d65716ae6d4ac3a286bab256
 =======
   m_Father: {fileID: 1845125844}
   m_RootOrder: 5
@@ -2866,8 +2871,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Father: {fileID: 939446646}
   m_RootOrder: 4
+=======
+  m_Father: {fileID: 1845125844}
+  m_RootOrder: 9
+>>>>>>> 807d6889464f64a8d65716ae6d4ac3a286bab256
 =======
   m_Father: {fileID: 1845125844}
   m_RootOrder: 9
@@ -3065,8 +3075,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Father: {fileID: 939446646}
   m_RootOrder: 3
+=======
+  m_Father: {fileID: 1845125844}
+  m_RootOrder: 8
+>>>>>>> 807d6889464f64a8d65716ae6d4ac3a286bab256
 =======
   m_Father: {fileID: 1845125844}
   m_RootOrder: 8
@@ -3562,8 +3577,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Father: {fileID: 939446646}
   m_RootOrder: 1
+=======
+  m_Father: {fileID: 1845125844}
+  m_RootOrder: 6
+>>>>>>> 807d6889464f64a8d65716ae6d4ac3a286bab256
 =======
   m_Father: {fileID: 1845125844}
   m_RootOrder: 6
@@ -5544,13 +5564,19 @@ RectTransform:
   - {fileID: 165176734}
   - {fileID: 750326460}
 <<<<<<< HEAD
+<<<<<<< HEAD
   - {fileID: 939446646}
 =======
+=======
+>>>>>>> 807d6889464f64a8d65716ae6d4ac3a286bab256
   - {fileID: 578635003}
   - {fileID: 1206638068}
   - {fileID: 2006898728}
   - {fileID: 958583103}
   - {fileID: 934202737}
+<<<<<<< HEAD
+>>>>>>> 807d6889464f64a8d65716ae6d4ac3a286bab256
+=======
 >>>>>>> 807d6889464f64a8d65716ae6d4ac3a286bab256
   m_Father: {fileID: 2030131854}
   m_RootOrder: 0
@@ -5738,8 +5764,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Father: {fileID: 939446646}
   m_RootOrder: 2
+=======
+  m_Father: {fileID: 1845125844}
+  m_RootOrder: 7
+>>>>>>> 807d6889464f64a8d65716ae6d4ac3a286bab256
 =======
   m_Father: {fileID: 1845125844}
   m_RootOrder: 7
