@@ -6,14 +6,14 @@ TagManager:
   tags:
   - Enemy
   - house
-  - ground2
-  - ground1
   - Player1
   - Player2
   - PointDrop
   - P1House
   - P2House
   - GameOver1
+  - EnemyP1
+  - EnemyP2
   layers:
   - Default
   - TransparentFX
