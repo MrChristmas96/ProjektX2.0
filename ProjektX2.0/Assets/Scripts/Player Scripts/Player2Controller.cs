@@ -29,7 +29,6 @@ public class Player2Controller : MonoBehaviour
 
     public Camera cameraP2;
 
-    public Transform player;
     private Animator anim;
 
     private int comboCounter = 0;
