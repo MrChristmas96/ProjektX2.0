@@ -26,7 +26,7 @@ public class spawnitem {
         switch (itemType)
         {
             default:
-            case ItemType.SpawnYeti:     return GameAssets.i.Y_Yeti;
+            case ItemType.SpawnYeti:     return GameAssets.i.Y_SpawnYeti;
         }
     }
 

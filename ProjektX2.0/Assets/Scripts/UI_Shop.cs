@@ -14,29 +14,34 @@ public class UI_Shop : MonoBehaviour
     private void Awake()
     {
         Container = transform.Find("Container");
-        shopItemTemplate = Container.Find("shopItemTemplate");
-        shopItemTemplate.gameObject.SetActive(false);
+        shopItemTemplate = transform.Find("shopItemTemplat");
+        
+        
     }
 
     private void Start()
     {
-        CreateItemButton(spawnitem.GetSprite(spawnitem.ItemType.SpawnYeti), "SpawnYeti", spawnitem.GetCost(spawnitem.ItemType.SpawnYeti),1);
-
-        
+       
+        Hide();
+       
     }
+
 
     private void CreateItemButton(Sprite itemSprite, string itemName, int itemCost, int positionIndex)
     {
         Transform shopItemTransform = Instantiate(shopItemTemplate, Container);
+        shopItemTransform.gameObject.SetActive(true);
         RectTransform shopItemRectTransform = shopItemTransform.GetComponent<RectTransform>();
 
         float shopItemHeight = 30f;
         shopItemRectTransform.anchoredPosition = new Vector2(0, -shopItemHeight * positionIndex);
 
-        shopItemTransform.Find("itemName").GetComponent<TextMeshProUGUI>().SetText(itemName);
+        shopItemTransform.Find("SpawnText").GetComponent<TextMeshProUGUI>().SetText(itemName);
         shopItemTransform.Find("CostText").GetComponent<TextMeshProUGUI>().SetText(itemCost.ToString());
 
-        shopItemTransform.Find("itemImage").GetComponent<Image>().sprite = itemSprite;
+        shopItemTransform.Find("YetiBillede").GetComponent<Image>().sprite = itemSprite;
+
+  
     }
 
 
@@ -57,6 +62,7 @@ public class UI_Shop : MonoBehaviour
     {
         this.shopCustomer = shopCustomer;
         gameObject.SetActive(true);
+
     }
 
     public void Hide()

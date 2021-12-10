@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Reflection;
+using UnityEngine.Animations;
 
 
 public class GameAssets : MonoBehaviour
@@ -17,7 +18,8 @@ public class GameAssets : MonoBehaviour
         }
     }
 
-    public Sprite Y_Yeti;
+    public Sprite Y_SpawnYeti;
+    public Sprite Y_StunPlayer;
 
 
 
