@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +7,7 @@ public class spawnitem {
 
     public enum ItemType
     {
-        SpawnYeti
+        SpawnYeti,
         StunPlayer
     }
 
@@ -20,16 +21,14 @@ public class spawnitem {
         }
     }
 
-{
-    // Start is called before the first frame update
-    void Start()
+    public static Sprite GetSprite(ItemType itemType)
     {
-        
+        switch (itemType)
+        {
+            default:
+            case ItemType.SpawnYeti:     return GameAssets.i.Y_Yeti;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }
