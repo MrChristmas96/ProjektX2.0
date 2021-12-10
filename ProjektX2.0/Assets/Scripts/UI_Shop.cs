@@ -1,24 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UI_Shop : MonoBehaviour
 {
     //Populate our store.
-    private Transform container;
+    private Transform Container;
     private Transform shopItemTemplate;
     private IShopCustomer shopCustomer;
 
     private void Awake()
     {
-        container = transform.Find("container");
-        shopItemTemplate = container.Find("shopItemTemplate");
+        Container = transform.Find("Container");
+        shopItemTemplate = Container.Find("shopItemTemplate");
         shopItemTemplate.gameObject.SetActive(false);
     }
 
-    private void CreateItemButton(Sprite, itemSprite, string itemName, int itemCost, int positionIndex)
+    private void Start()
     {
-        Transform shopItemTransform = Instantiate(shopItemTemplate, container);
+        CreateItemButton(spawnitem.GetSprite(spawnitem.ItemType.SpawnYeti), "SpawnYeti", spawnitem.GetCost(spawnitem.ItemType.SpawnYeti),1);
+
+        
+    }
+
+    private void CreateItemButton(Sprite itemSprite, string itemName, int itemCost, int positionIndex)
+    {
+        Transform shopItemTransform = Instantiate(shopItemTemplate, Container);
         RectTransform shopItemRectTransform = shopItemTransform.GetComponent<RectTransform>();
 
         float shopItemHeight = 30f;
@@ -38,29 +47,24 @@ public class UI_Shop : MonoBehaviour
 
 
 
-
-
-
-
-
-
-
-    private void TryBuyItem(Item.ItemType itemType) {
+    private void TryBuyItem(spawnitem.ItemType itemType)
+    {
         shopCustomer.BoughtItem(itemType);
+   
     }
 
-    public void TryBuyItem(Item.ItemType itemType) {
-        this.shopCustomer = shopCustomer
-            gameObjekt.SetActive(true);
+    public void Show(IShopCustomer shopCustomer)
+    {
+        this.shopCustomer = shopCustomer;
+        gameObject.SetActive(true);
     }
 
-    public void hide()
+    public void Hide()
     {
         gameObject.SetActive(false);
-    
-
-    
     }
+  
+
 }
     
  
