@@ -22,9 +22,6 @@ public class UIMaster : MonoBehaviour
 
     private void Start()
     {
-        P1Flash.enabled = false;
-        P2Flash.enabled = false;
-
         anim = GetComponent<Animator>();
     }
 
@@ -37,12 +34,12 @@ public class UIMaster : MonoBehaviour
 
     public void ReactorDamageFlashP1()
     {
-        //Play Animation
+        anim.Play("P1ReactorDamage");
 
     }
     public void ReactorDamageFlashP2()
     {
-        //Play Animation
+        anim.Play("P2ReactorDamage");
     }
 
     public void WaveStart()
