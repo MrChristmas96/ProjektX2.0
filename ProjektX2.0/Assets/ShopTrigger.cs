@@ -6,29 +6,27 @@ using UnityEngine;
 public class ShopTriggerCollider : MonoBehaviour
 {
 
-    [SerializeField] private UI_Shop uiShop;
+    [SerializeField] private UI_Shop1 uiShop;
 
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
         IShopCustomer shopCustomer = collider.GetComponent<IShopCustomer>();
-        if (shopCustomer !=null)
+        if (shopCustomer != null)
         {
             uiShop.Show(shopCustomer);
-            
+
 
         }
     }
-    private void OnTriggerExit2D(Collider2D collider) 
+    private void OnTriggerExit2D(Collider2D collider)
     {
         IShopCustomer shopCustomer = collider.GetComponent<IShopCustomer>();
-        if (shopCustomer !=null) 
+        if (shopCustomer != null)
         {
             uiShop.Hide();
-            
+
         }
-        
+
     }
 }
-
-        
