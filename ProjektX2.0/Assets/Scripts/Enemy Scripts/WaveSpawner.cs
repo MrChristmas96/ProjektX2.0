@@ -153,18 +153,22 @@ public class WaveSpawner : MonoBehaviour
 
     void SpawnSendEnemyP1()
     {
+        enemy.tag = "EnemyP1";
         Transform _sp = spawnPoints[Random.Range(2, 4)];
         Instantiate(enemy, _sp.position, _sp.rotation);
         enemyP1--;
         spawnSendP1 = Time.time + Random.Range(0.2f, 1.2f);
+        enemy.tag = "Enemy";
     }
 
     void SpawnSendEnemyP2()
     {
+        enemy.tag = "EnemyP2";
         Transform _sp = spawnPoints[Random.Range(0, 2)];
         Instantiate(enemy, _sp.position, _sp.rotation);
         enemyP2--;
         spawnSendP2 = Time.time + Random.Range(0.2f, 1.2f);
+        enemy.tag = "Enemy";
     }
 
 
