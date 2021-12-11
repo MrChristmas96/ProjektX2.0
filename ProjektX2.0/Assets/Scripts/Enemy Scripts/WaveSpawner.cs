@@ -12,17 +12,17 @@ public class WaveSpawner : MonoBehaviour
     
     public class Wave
     {
-        public string name;
         public Transform enemy;
         public static int count = 4;
         public float rate;
-
     }
 
     public Transform enemy;
 
     public Wave[] waves;
     private int nextWave = 0;
+    public int waveCount = 1;
+
 
     public Transform[] spawnPoints;
 
@@ -39,6 +39,8 @@ public class WaveSpawner : MonoBehaviour
 
     private float spawnSendP1;
     private float spawnSendP2;
+
+    public UIMaster UIMaster;
 
     private void Start()
     {
@@ -99,9 +101,8 @@ public class WaveSpawner : MonoBehaviour
 
         if (nextWave + 1 > waves.Length - 1) //Hvis nextWave er størrer end 0 begynder den at spawne flere fjender
         {
-            Debug.Log("Adding more enemies");
             Wave.count += 2;
-           
+            waveCount++;
             nextWave = 0;
             
         }
@@ -129,7 +130,8 @@ public class WaveSpawner : MonoBehaviour
 
     IEnumerator SpawnWave (Wave _wave)
     {
-        Debug.Log("Spawning wave " + _wave.name);
+        UIMaster.WaveStart();
+        Debug.Log("Wave: "+ waveCount);
         state = SpawnState.SPAWNING;
         for (int i=0; i< Wave.count; i++)
         {
@@ -153,18 +155,22 @@ public class WaveSpawner : MonoBehaviour
 
     void SpawnSendEnemyP1()
     {
+        enemy.tag = "EnemyP1";
         Transform _sp = spawnPoints[Random.Range(2, 4)];
         Instantiate(enemy, _sp.position, _sp.rotation);
         enemyP1--;
         spawnSendP1 = Time.time + Random.Range(0.2f, 1.2f);
+        enemy.tag = "Enemy";
     }
 
     void SpawnSendEnemyP2()
     {
+        enemy.tag = "EnemyP2";
         Transform _sp = spawnPoints[Random.Range(0, 2)];
         Instantiate(enemy, _sp.position, _sp.rotation);
         enemyP2--;
         spawnSendP2 = Time.time + Random.Range(0.2f, 1.2f);
+        enemy.tag = "Enemy";
     }
 
 

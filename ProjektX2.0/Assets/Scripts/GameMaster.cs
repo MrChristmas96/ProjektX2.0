@@ -17,6 +17,8 @@ public class GameMaster : MonoBehaviour
 
     public bool GameOver = false;
 
+    public UIMaster UIMaster;
+
     public void P1PointGain()
     {
         p1Points++;
@@ -55,6 +57,7 @@ public class GameMaster : MonoBehaviour
 
     public void P1HousetakeDamage(float i)
     {
+        UIMaster.ReactorDamageFlashP1();
         p1HouseHealth -= i;
 
         if (p1HouseHealth <= 0f)
@@ -68,6 +71,7 @@ public class GameMaster : MonoBehaviour
 
     public void P2HousetakeDamage(float i)
     {
+        UIMaster.ReactorDamageFlashP2();
         p2HouseHealth -= i;
 
         if (p2HouseHealth <= 0f)
