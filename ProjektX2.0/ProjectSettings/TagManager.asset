@@ -12,8 +12,12 @@ TagManager:
   - P1House
   - P2House
   - GameOver1
+<<<<<<< HEAD
   - EnemyP1
   - EnemyP2
+=======
+  - shopItemTemplate
+>>>>>>> 11111
   layers:
   - Default
   - TransparentFX
