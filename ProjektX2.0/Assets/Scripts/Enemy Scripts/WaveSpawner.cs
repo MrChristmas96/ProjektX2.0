@@ -12,17 +12,17 @@ public class WaveSpawner : MonoBehaviour
     
     public class Wave
     {
-        public string name;
         public Transform enemy;
         public static int count = 4;
         public float rate;
-
     }
 
     public Transform enemy;
 
     public Wave[] waves;
     private int nextWave = 0;
+    public int waveCount = 1;
+
 
     public Transform[] spawnPoints;
 
@@ -39,6 +39,8 @@ public class WaveSpawner : MonoBehaviour
 
     private float spawnSendP1;
     private float spawnSendP2;
+
+    public UIMaster UIMaster;
 
     private void Start()
     {
@@ -99,9 +101,8 @@ public class WaveSpawner : MonoBehaviour
 
         if (nextWave + 1 > waves.Length - 1) //Hvis nextWave er størrer end 0 begynder den at spawne flere fjender
         {
-            Debug.Log("Adding more enemies");
             Wave.count += 2;
-           
+            waveCount++;
             nextWave = 0;
             
         }
@@ -129,7 +130,8 @@ public class WaveSpawner : MonoBehaviour
 
     IEnumerator SpawnWave (Wave _wave)
     {
-        Debug.Log("Spawning wave " + _wave.name);
+        UIMaster.WaveStart();
+        Debug.Log("Wave: "+ waveCount);
         state = SpawnState.SPAWNING;
         for (int i=0; i< Wave.count; i++)
         {
