@@ -19,6 +19,9 @@ public class GameMaster : MonoBehaviour
 
     public UIMaster UIMaster;
 
+    public ParticleSystem P1Reactor;
+    public ParticleSystem P2Reactor;
+
     public void P1PointGain()
     {
         p1Points++;
@@ -60,6 +63,10 @@ public class GameMaster : MonoBehaviour
         UIMaster.ReactorDamageFlashP1();
         p1HouseHealth -= i;
 
+        var size = P1Reactor.sizeOverLifetime;
+        size.enabled = true;
+        size.sizeMultiplier /=1.5f;
+
         if (p1HouseHealth <= 0f)
         {
             Debug.Log("Player 1 died");
@@ -73,6 +80,10 @@ public class GameMaster : MonoBehaviour
     {
         UIMaster.ReactorDamageFlashP2();
         p2HouseHealth -= i;
+
+        var size = P2Reactor.sizeOverLifetime;
+        size.enabled = true;
+        size.sizeMultiplier /= 1.5f;
 
         if (p2HouseHealth <= 0f)
         {
