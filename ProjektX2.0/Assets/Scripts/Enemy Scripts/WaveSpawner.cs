@@ -18,10 +18,11 @@ public class WaveSpawner : MonoBehaviour
     }
 
     public Transform enemy;
+    private EnemyController controller;
 
     public Wave[] waves;
     private int nextWave = 0;
-    public int waveCount = 1;
+    private int waveCount = 1;
 
 
     public Transform[] spawnPoints;
@@ -41,11 +42,11 @@ public class WaveSpawner : MonoBehaviour
     private float spawnSendP2;
 
     public UIMaster UIMaster;
+    public GameMaster GM;
 
     private void Start()
     {
         waveCountDown = timeBetweenWaves;
-
     }
 
     private void Update()
@@ -103,7 +104,9 @@ public class WaveSpawner : MonoBehaviour
         {
             Wave.count += 2;
             waveCount++;
+            GM.waveCount++;
             nextWave = 0;
+            
             
         }
         else
@@ -132,6 +135,7 @@ public class WaveSpawner : MonoBehaviour
     {
         UIMaster.WaveStart();
         Debug.Log("Wave: "+ waveCount);
+        Debug.Log("Spawn " + Wave.count + " Enemies");
         state = SpawnState.SPAWNING;
         for (int i=0; i< Wave.count; i++)
         {
@@ -149,8 +153,12 @@ public class WaveSpawner : MonoBehaviour
     void SpawnEnemy (Transform _enemy)
     {
         Transform _sp = spawnPoints[Random.Range(0, spawnPoints.Length)];
-        Instantiate(_enemy, _sp.position, _sp.rotation);
-        Debug.Log("Spawn" + _enemy.name);
+        Instantiate(enemy, _sp.position, _sp.rotation);
+
+        controller = FindObjectOfType<EnemyController>();
+        controller.currentEnemyHealth += (10 * GM.waveCount);
+        controller.speed += (0.5f * GM.waveCount);
+        controller.attackDamage += (1f * GM.waveCount);
     }
 
     void SpawnSendEnemyP1()

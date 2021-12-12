@@ -7105,7 +7105,6 @@ MonoBehaviour:
   waves:
   - enemy: {fileID: 2709688927502260320, guid: bc5f5e2d9cca1544e94b9cf30548d4d5, type: 3}
     rate: 4
-  waveCount: 1
   spawnPoints:
   - {fileID: 317023356}
   - {fileID: 1039826015}
@@ -7116,6 +7115,7 @@ MonoBehaviour:
   enemyP1: 0
   enemyP2: 0
   UIMaster: {fileID: 2055427291}
+  GM: {fileID: 1338656707}
 --- !u!4 &1338656706
 Transform:
   m_ObjectHideFlags: 0
@@ -7156,6 +7156,7 @@ MonoBehaviour:
   UIMaster: {fileID: 2055427291}
   P1Reactor: {fileID: 801309433}
   P2Reactor: {fileID: 2103579578}
+  waveCount: 1
 --- !u!81 &1338656708
 AudioListener:
   m_ObjectHideFlags: 0
@@ -7473,7 +7474,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Wave: 0'
+  m_Text: 'Wave: 1'
 --- !u!222 &1435510122
 CanvasRenderer:
   m_ObjectHideFlags: 0

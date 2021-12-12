@@ -17,7 +17,7 @@ public class EnemyController : MonoBehaviour
     public float StoppingDistance;
 
     public LayerMask playerLayer;
-    [SerializeField] private float attackDamage = 10f;
+    public float attackDamage = 10f;
     [SerializeField] private float attackSpeed = 20f;
     private float CanAttack;
 
@@ -27,7 +27,7 @@ public class EnemyController : MonoBehaviour
     public GameObject pointDrop;
     public GameObject powerUp;
 
-    public float enemyHealth = 100;
+    public float currentEnemyHealth;
 
     public ParticleSystem hit;
     public ParticleSystem blood;
@@ -63,6 +63,7 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
+
         //move to player
         if (Vector2.Distance(transform.position, p1.position) < StoppingDistance)
         {
@@ -99,7 +100,7 @@ public class EnemyController : MonoBehaviour
             FlipEnemy();
         }
 
-        if (enemyHealth <= 0)
+            if (currentEnemyHealth <= 0)
         {
             gameObject.SetActive(false);
         }
@@ -212,7 +213,7 @@ public class EnemyController : MonoBehaviour
         transform.position = transform.position + new Vector3(0, 1, 0);
         HitEffect(hit);
         BloodEffect(blood);
-        enemyHealth -= f;
+        currentEnemyHealth -= f;
         Thread.Sleep(20);
     }
     
