@@ -29,7 +29,7 @@ public class UIMaster : MonoBehaviour
     {
         p1PointsUI.text = "Player 1 points: " + gameMaster.p1Points;
         p2PointsUI.text = "Player 2 points: " + gameMaster.p2Points;
-        WaveCount.text = "Wave: " + waveSpawner.waveCount;
+        WaveCount.text = "Wave: " + gameMaster.waveCount;
     }
 
     public void ReactorDamageFlashP1()

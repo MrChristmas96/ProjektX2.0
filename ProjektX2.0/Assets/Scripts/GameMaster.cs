@@ -22,6 +22,9 @@ public class GameMaster : MonoBehaviour
     public ParticleSystem P1Reactor;
     public ParticleSystem P2Reactor;
 
+    public int waveCount = 1;
+
+
     public void P1PointGain()
     {
         p1Points++;

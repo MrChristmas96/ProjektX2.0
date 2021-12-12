@@ -15,12 +15,12 @@ public class EnemyHealthBar : MonoBehaviour
     {
         HealthBar = fill.GetComponent<Image>();
         enemy = GetComponent<EnemyController>();
-        MaxHealth = enemy.enemyHealth;
+        MaxHealth = enemy.currentEnemyHealth;
     }
 
     private void Update()
     {
-        currentHealth = enemy.enemyHealth;
+        currentHealth = enemy.currentEnemyHealth;
         HealthBar.fillAmount = currentHealth / MaxHealth;
     }
 

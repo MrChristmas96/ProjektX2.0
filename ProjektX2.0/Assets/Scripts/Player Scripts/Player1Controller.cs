@@ -106,7 +106,7 @@ public class Player1Controller : MonoBehaviour
                 attackTime = Time.time + attackCooldown;
                 comboCounter++;
                 anim.Play("P1CyberVikingAttack1");
-                foreach (BoxCollider2D enemy in hitEnemies)
+                foreach (CircleCollider2D enemy in hitEnemies)
                 {
                     enemy.GetComponent<EnemyController>().TakeDamage(attackDamage);
                     StartCoroutine(screenShake.Shake(0.1f, 1f));
@@ -117,7 +117,7 @@ public class Player1Controller : MonoBehaviour
                 attackTime = Time.time + attackCooldown;
                 comboCounter++;
                 anim.Play("P1CyberVikingAttack2");
-                foreach (BoxCollider2D enemy in hitEnemies)
+                foreach (CircleCollider2D enemy in hitEnemies)
                 {
                     enemy.GetComponent<EnemyController>().TakeDamage(attackDamage*1.5f);
                     StartCoroutine(screenShake.Shake(0.1f, 1f));
@@ -128,7 +128,7 @@ public class Player1Controller : MonoBehaviour
                 attackTime = Time.time + attackCooldown + 0.5f;
                 comboCounter = 0;
                 anim.Play("P1CyberVikingAttack3");
-                foreach (BoxCollider2D enemy in hitEnemies)
+                foreach (CircleCollider2D enemy in hitEnemies)
                 {
                     enemy.GetComponent<EnemyController>().TakeDamage(attackDamage*2f);
                     StartCoroutine(screenShake.Shake(0.1f, 1f));

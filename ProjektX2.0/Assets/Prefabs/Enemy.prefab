@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 2709688927502260320}
   - component: {fileID: 2709688927502260323}
   - component: {fileID: 755998071488943652}
-  - component: {fileID: 751574490}
   - component: {fileID: 7438409472522673224}
   - component: {fileID: 751574487}
   - component: {fileID: 751574493}
   - component: {fileID: 964995580}
+  - component: {fileID: 7842125713173289614}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
@@ -58,7 +58,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &755998071488943652
 MonoBehaviour:
@@ -73,7 +73,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameMaster: {fileID: 0}
-  speed: 8
+  speed: 5
   StoppingDistance: 10
   playerLayer:
     serializedVersion: 2
@@ -84,35 +84,9 @@ MonoBehaviour:
   attackRange: 2.64
   pointDrop: {fileID: 3109080846801636736, guid: 6e68079566dc01645902835ea27d8f85, type: 3}
   powerUp: {fileID: 3741957553122113191, guid: 4cb80225eed094e4bafa766f37e3f0f3, type: 3}
-  enemyHealth: 100
+  currentEnemyHealth: 75
   hit: {fileID: 2204603645861867133, guid: 2be30ad3103d5804cbfc8231583b5143, type: 3}
   blood: {fileID: 5072110392913133923, guid: 777c79181b9669c4f8d306558532e208, type: 3}
---- !u!61 &751574490
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2709688927502260333}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -4.2624474, y: -1.572063}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.49999982, y: 0.53805166}
-    oldSize: {x: 28.532507, y: 18}
-    newSize: {x: 28.532507, y: 18}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 7.4905205, y: 11.936336}
-  m_EdgeRadius: 0
 --- !u!70 &7438409472522673224
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -213,6 +187,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   fill: {fileID: 9102325486622544064}
+--- !u!58 &7842125713173289614
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2709688927502260333}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -4.68, y: -2.376275}
+  serializedVersion: 2
+  m_Radius: 5.640416
 --- !u!1 &7365692678506006950
 GameObject:
   m_ObjectHideFlags: 0

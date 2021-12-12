@@ -86,7 +86,7 @@ public class Powerup : MonoBehaviour
         }
         else if (player == ("Player2"))
         {
-            P1Controller.movementSpeed += 3;
+            P2Controller.movementSpeed += 3;
         }
     }
 
@@ -98,7 +98,7 @@ public class Powerup : MonoBehaviour
         }
         else if (player == ("Player2"))
         {
-            P1Controller.attackRange += 0.1f;
+            P2Controller.attackRange += 0.1f;
         }
     }
 
