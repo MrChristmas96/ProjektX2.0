@@ -6804,6 +6804,7 @@ MonoBehaviour:
   GameOver: 0
   UIMaster: {fileID: 2055427291}
   P1Reactor: {fileID: 2103579578}
+  P2Reactor: {fileID: 2103579578}
 --- !u!81 &1338656708
 AudioListener:
   m_ObjectHideFlags: 0
