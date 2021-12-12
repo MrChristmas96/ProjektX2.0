@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class Powerup : MonoBehaviour
 {
-    //AttackSpeed, AttackRange
     private string player;
-    private GameObject playerObj;
+
     private Player1Controller P1Controller;
     private Player2Controller P2Controller;
     public GameMaster GM;
+
+    private int powerUp;
 
     private void Awake()
     {
@@ -21,17 +22,32 @@ public class Powerup : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
 
-        if (other.CompareTag("Player1") || other.CompareTag("Player1"))
-        {
-            //Give 1 random powerup
+        if (other.CompareTag("Player1") || other.CompareTag("Player2"))
+        {         
             player = other.tag;
-            //playerObj = GameObject.FindGameObjectWithTag(player);
 
-            Heal();
-            AttackBuff();
-            MoveSpeed();
-            AttackRange();
-            
+            //Give 1 random powerup
+            powerUp = Random.Range(0, 3);
+            if(powerUp == 0)
+            {
+                Debug.Log("Heal");
+                Heal();
+            }
+            else if (powerUp == 1)
+            {
+                Debug.Log("AttackBuff");
+                AttackBuff();
+            }
+            else if (powerUp == 2)
+            {
+                Debug.Log("MoveSpeed");
+                MoveSpeed();
+            }
+            else if (powerUp == 3)
+            {
+                Debug.Log("AttackRange");
+                AttackRange();
+            }          
             Destroy(gameObject);
         }
     }

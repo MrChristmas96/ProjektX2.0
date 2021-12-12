@@ -25,6 +25,7 @@ public class EnemyController : MonoBehaviour
     public float attackRange = 0.5f;
 
     public GameObject pointDrop;
+    public GameObject powerUp;
 
     public float enemyHealth = 100;
 
@@ -32,6 +33,7 @@ public class EnemyController : MonoBehaviour
     public ParticleSystem blood;
     private ParticleSystem hitPlay;
     private ParticleSystem bloodPlay;
+
 
     private Animator anim;
 
@@ -196,6 +198,13 @@ public class EnemyController : MonoBehaviour
         // Fixer error "Some objects were not cleaned up when closing the scene" så den kun instantiater hvis scener er loaded
         if (!this.gameObject.scene.isLoaded) return;
         Instantiate(pointDrop, transform.position, Quaternion.identity);
+
+        int rand = Random.Range(0, 100);
+
+        if (rand <= 10)
+        {
+            Instantiate(powerUp, transform.position, Quaternion.identity);
+        }
     }
 
     public void TakeDamage(float f)
