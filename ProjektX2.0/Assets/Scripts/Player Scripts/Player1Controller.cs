@@ -7,6 +7,7 @@ public class Player1Controller : MonoBehaviour
 {
     public float movementSpeed;
     public float jumpSpeed;
+    public float attackDamage;
     public LayerMask Ground;
 
     public Transform attackPoint;
@@ -107,7 +108,7 @@ public class Player1Controller : MonoBehaviour
                 anim.Play("P1CyberVikingAttack1");
                 foreach (BoxCollider2D enemy in hitEnemies)
                 {
-                    enemy.GetComponent<EnemyController>().TakeDamage(50);
+                    enemy.GetComponent<EnemyController>().TakeDamage(attackDamage);
                     StartCoroutine(screenShake.Shake(0.1f, 1f));
                 }
             }
@@ -118,7 +119,7 @@ public class Player1Controller : MonoBehaviour
                 anim.Play("P1CyberVikingAttack2");
                 foreach (BoxCollider2D enemy in hitEnemies)
                 {
-                    enemy.GetComponent<EnemyController>().TakeDamage(75);
+                    enemy.GetComponent<EnemyController>().TakeDamage(attackDamage*1.5f);
                     StartCoroutine(screenShake.Shake(0.1f, 1f));
                 }
             }
@@ -129,7 +130,7 @@ public class Player1Controller : MonoBehaviour
                 anim.Play("P1CyberVikingAttack3");
                 foreach (BoxCollider2D enemy in hitEnemies)
                 {
-                    enemy.GetComponent<EnemyController>().TakeDamage(100);
+                    enemy.GetComponent<EnemyController>().TakeDamage(attackDamage*2f);
                     StartCoroutine(screenShake.Shake(0.1f, 1f));
                 }
             }

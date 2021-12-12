@@ -65,7 +65,7 @@ public class GameMaster : MonoBehaviour
 
         var size = P1Reactor.sizeOverLifetime;
         size.enabled = true;
-        size.sizeMultiplier /=1.5f;
+        size.sizeMultiplier /= 1.2f;
 
         if (p1HouseHealth <= 0f)
         {
@@ -83,7 +83,7 @@ public class GameMaster : MonoBehaviour
 
         var size = P2Reactor.sizeOverLifetime;
         size.enabled = true;
-        size.sizeMultiplier /= 1.5f;
+        size.sizeMultiplier /= 1.2f;
 
         if (p2HouseHealth <= 0f)
         {

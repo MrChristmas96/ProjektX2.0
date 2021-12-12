@@ -12,6 +12,7 @@ TagManager:
   - PointDrop
   - EnemyP1
   - EnemyP2
+  - Powerup
   layers:
   - Default
   - TransparentFX

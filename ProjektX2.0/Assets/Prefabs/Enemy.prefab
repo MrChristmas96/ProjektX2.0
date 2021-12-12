@@ -83,6 +83,7 @@ MonoBehaviour:
   attackPoint: {fileID: 3700691828080097933}
   attackRange: 2.64
   pointDrop: {fileID: 3109080846801636736, guid: 6e68079566dc01645902835ea27d8f85, type: 3}
+  powerUp: {fileID: 3741957553122113191, guid: 4cb80225eed094e4bafa766f37e3f0f3, type: 3}
   enemyHealth: 100
   hit: {fileID: 2204603645861867133, guid: 2be30ad3103d5804cbfc8231583b5143, type: 3}
   blood: {fileID: 5072110392913133923, guid: 777c79181b9669c4f8d306558532e208, type: 3}
