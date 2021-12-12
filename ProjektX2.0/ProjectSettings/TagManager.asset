@@ -5,13 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
-  - house
+  - P2House
   - Player1
+  - P1House
   - Player2
   - PointDrop
-  - P1House
-  - P2House
-  - GameOver1
   - EnemyP1
   - EnemyP2
   layers:
@@ -22,9 +20,9 @@ TagManager:
   - Water
   - UI
   - 
-  - Enemy
-  - Ground
-  - Player
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -50,7 +48,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Platform
-    uniqueID: 4006959573
     locked: 0
