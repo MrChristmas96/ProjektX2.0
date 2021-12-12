@@ -4448,6 +4448,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2999979355896748497, guid: abfe1351c930e454282a61c7b96ef6f9, type: 3}
   m_PrefabInstance: {fileID: 1681521959}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &801309433 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4096966417323024712, guid: f5b20f41f648cf442b6550e0295a06d8, type: 3}
+  m_PrefabInstance: {fileID: 4096966416999299261}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &811768417
 GameObject:
   m_ObjectHideFlags: 0
@@ -7149,7 +7154,7 @@ MonoBehaviour:
   p2Health: 100
   GameOver: 0
   UIMaster: {fileID: 2055427291}
-  P1Reactor: {fileID: 2103579578}
+  P1Reactor: {fileID: 801309433}
   P2Reactor: {fileID: 2103579578}
 --- !u!81 &1338656708
 AudioListener:
@@ -16232,7 +16237,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4805361650502696587, guid: e606ef988ccc2e242829af267c890dc5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.69
       objectReference: {fileID: 0}
     - target: {fileID: 4805361650502696587, guid: e606ef988ccc2e242829af267c890dc5, type: 3}
       propertyPath: m_LocalPosition.y
