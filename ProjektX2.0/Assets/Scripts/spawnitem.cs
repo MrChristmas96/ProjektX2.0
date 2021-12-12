@@ -30,6 +30,4 @@ public class Spawnitem {
             case ItemType.StunPlayer:    return GameAssets.i.Y_StunPlayer;
         }
     }
-
-
 }
