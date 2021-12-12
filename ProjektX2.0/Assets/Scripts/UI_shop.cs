@@ -25,9 +25,6 @@ public class UI_shop : MonoBehaviour
     private void Start()
     {
         Hide();
-        Debug.Log(ShopItemTemplate);
-        
-
     }
 
 
