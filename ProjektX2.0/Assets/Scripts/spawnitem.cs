@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class spawnitem { 
+public class Spawnitem { 
 
     public enum ItemType
     {
@@ -27,6 +27,7 @@ public class spawnitem {
         {
             default:
             case ItemType.SpawnYeti:     return GameAssets.i.Y_SpawnYeti;
+            case ItemType.StunPlayer:    return GameAssets.i.Y_StunPlayer;
         }
     }
 

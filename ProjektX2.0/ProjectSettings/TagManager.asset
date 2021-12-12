@@ -3,7 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
+  - P2House
+  - Player1
+  - P1House
+  - Player2
+  - PointDrop
+  - EnemyP1
+  - EnemyP2
   layers:
   - Default
   - TransparentFX

@@ -11,7 +11,7 @@ public class Player1 : MonoBehaviour, IShopCustomer
     public event EventHandler OnGoldAmountChanged;
     public event EventHandler OnHealthPotionAmountChanged;
 
-    public void BoughtItem(spawnitem.ItemType itemType)
+    public void BoughtItem(Spawnitem.ItemType itemType)
     {
         throw new NotImplementedException();
     }
