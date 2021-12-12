@@ -26,7 +26,7 @@ public class EnemyController : MonoBehaviour
 
     public GameObject pointDrop;
 
-    public int enemyHealth = 100;
+    public float enemyHealth = 100;
 
     public ParticleSystem hit;
     public ParticleSystem blood;
@@ -198,12 +198,12 @@ public class EnemyController : MonoBehaviour
         Instantiate(pointDrop, transform.position, Quaternion.identity);
     }
 
-    public void TakeDamage(int i)
+    public void TakeDamage(float f)
     {
         transform.position = transform.position + new Vector3(0, 1, 0);
         HitEffect(hit);
         BloodEffect(blood);
-        enemyHealth -= i;
+        enemyHealth -= f;
         Thread.Sleep(20);
     }
     
