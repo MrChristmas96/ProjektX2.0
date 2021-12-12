@@ -70,8 +70,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 04cff08e9c2b0614aabea4162d383301, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   gameMaster: {fileID: 0}
   speed: 8
   StoppingDistance: 10
@@ -194,7 +194,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_WarningMessage: 
+  m_WarningMessage:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
@@ -208,8 +208,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be4f0409c0c69ba4dac9f74654b281da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Name:
+  m_EditorClassIdentifier:
   currentHealth: 0
   fill: {fileID: 9102325486622544064}
 --- !u!1 &7365692678506006950
@@ -339,7 +339,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9102325487049421695, guid: d7a86f6d26d23a44ca9cdc5612d62a56, type: 3}
       propertyPath: m_Material
-      value: 
+      value:
       objectReference: {fileID: 2100000, guid: ca5367ce221ca174093953d3f5d43309, type: 2}
     m_RemovedComponents:
     - {fileID: 9102325487049421693, guid: d7a86f6d26d23a44ca9cdc5612d62a56, type: 3}
