@@ -13,11 +13,12 @@ TagManager:
   - EnemyP1
   - EnemyP2
   - Powerup
+  - Ground
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
   - 

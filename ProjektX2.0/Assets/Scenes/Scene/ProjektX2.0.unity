@@ -1032,7 +1032,7 @@ GameObject:
   - component: {fileID: 254588774}
   - component: {fileID: 254588776}
   - component: {fileID: 254588775}
-  m_Layer: 8
+  m_Layer: 3
   m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2306,6 +2306,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3345965002253980551, guid: abfe1351c930e454282a61c7b96ef6f9, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3345965002253980551, guid: abfe1351c930e454282a61c7b96ef6f9, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 3822351423917778323, guid: abfe1351c930e454282a61c7b96ef6f9, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -3494,6 +3502,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3345965002253980551, guid: abfe1351c930e454282a61c7b96ef6f9, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3822351423917778323, guid: abfe1351c930e454282a61c7b96ef6f9, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -3535,9 +3547,9 @@ GameObject:
   - component: {fileID: 750487478}
   - component: {fileID: 750487479}
   - component: {fileID: 750487480}
-  m_Layer: 8
+  m_Layer: 3
   m_Name: Platform
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4621,6 +4633,10 @@ PrefabInstance:
     - target: {fileID: 3345965002253980551, guid: abfe1351c930e454282a61c7b96ef6f9, type: 3}
       propertyPath: m_Name
       value: Ground (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3345965002253980551, guid: abfe1351c930e454282a61c7b96ef6f9, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3822351423917778323, guid: abfe1351c930e454282a61c7b96ef6f9, type: 3}
       propertyPath: m_Sprite
@@ -6224,6 +6240,10 @@ PrefabInstance:
     - target: {fileID: 3345965002253980551, guid: abfe1351c930e454282a61c7b96ef6f9, type: 3}
       propertyPath: m_Name
       value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 3345965002253980551, guid: abfe1351c930e454282a61c7b96ef6f9, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3822351423917778323, guid: abfe1351c930e454282a61c7b96ef6f9, type: 3}
       propertyPath: m_Sprite
@@ -12438,6 +12458,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3345965002253980551, guid: abfe1351c930e454282a61c7b96ef6f9, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3345965002253980551, guid: abfe1351c930e454282a61c7b96ef6f9, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 3822351423917778323, guid: abfe1351c930e454282a61c7b96ef6f9, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -12865,6 +12893,10 @@ PrefabInstance:
       propertyPath: gameMaster
       value: 
       objectReference: {fileID: 1338656707}
+    - target: {fileID: 4805361650502696584, guid: e606ef988ccc2e242829af267c890dc5, type: 3}
+      propertyPath: Ground.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4805361650502696587, guid: e606ef988ccc2e242829af267c890dc5, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -13144,6 +13176,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground
       objectReference: {fileID: 0}
+    - target: {fileID: 3345965002253980551, guid: abfe1351c930e454282a61c7b96ef6f9, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3345965002253980551, guid: abfe1351c930e454282a61c7b96ef6f9, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abfe1351c930e454282a61c7b96ef6f9, type: 3}
 --- !u!4 &7211286501442520917 stripped
@@ -13227,6 +13267,10 @@ PrefabInstance:
       propertyPath: gameMaster
       value: 
       objectReference: {fileID: 1338656707}
+    - target: {fileID: 895559634, guid: 2b3e851079303fb449a9b253f11bdb68, type: 3}
+      propertyPath: Ground.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 9161871650751013098, guid: 2b3e851079303fb449a9b253f11bdb68, type: 3}
       propertyPath: m_RootOrder
       value: 3
