@@ -42,7 +42,7 @@ public class UI_shop : MonoBehaviour
 
         shopItemTransform.Find("ItemImage").GetComponent<Image>().sprite = itemSprite;
 
-
+       
 
     }
    

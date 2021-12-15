@@ -41,6 +41,14 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Send"",
+                    ""type"": ""Button"",
+                    ""id"": ""c822f031-3753-4e08-848f-241519d8f3f7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -98,6 +106,17 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                     ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""db41d59e-8747-4c0d-865d-e2c0154e5c96"",
+                    ""path"": ""<Keyboard>/g"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Send"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -109,6 +128,14 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                     ""name"": ""Move"",
                     ""type"": ""PassThrough"",
                     ""id"": ""86d19638-b047-4757-b8cb-a3c000a70bc4"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Send"",
+                    ""type"": ""Button"",
+                    ""id"": ""aceecda4-b96a-440f-9558-7e520ad4a178"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -185,6 +212,17 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                     ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3b70bac1-cd23-487c-adc3-2cb05dc88ec1"",
+                    ""path"": ""<Keyboard>/n"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Send"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -223,9 +261,11 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
         m_Player1_Move = m_Player1.FindAction("Move", throwIfNotFound: true);
         m_Player1_Jump = m_Player1.FindAction("Jump", throwIfNotFound: true);
         m_Player1_Attack = m_Player1.FindAction("Attack", throwIfNotFound: true);
+        m_Player1_Send = m_Player1.FindAction("Send", throwIfNotFound: true);
         // Player2
         m_Player2 = asset.FindActionMap("Player2", throwIfNotFound: true);
         m_Player2_Move = m_Player2.FindAction("Move", throwIfNotFound: true);
+        m_Player2_Send = m_Player2.FindAction("Send", throwIfNotFound: true);
         m_Player2_Jump = m_Player2.FindAction("Jump", throwIfNotFound: true);
         m_Player2_Attack = m_Player2.FindAction("Attack", throwIfNotFound: true);
         // Esc
@@ -283,6 +323,7 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Player1_Move;
     private readonly InputAction m_Player1_Jump;
     private readonly InputAction m_Player1_Attack;
+    private readonly InputAction m_Player1_Send;
     public struct Player1Actions
     {
         private @PlayerActionControls m_Wrapper;
@@ -290,6 +331,7 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
         public InputAction @Move => m_Wrapper.m_Player1_Move;
         public InputAction @Jump => m_Wrapper.m_Player1_Jump;
         public InputAction @Attack => m_Wrapper.m_Player1_Attack;
+        public InputAction @Send => m_Wrapper.m_Player1_Send;
         public InputActionMap Get() { return m_Wrapper.m_Player1; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -308,6 +350,9 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                 @Attack.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnAttack;
                 @Attack.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnAttack;
                 @Attack.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnAttack;
+                @Send.started -= m_Wrapper.m_Player1ActionsCallbackInterface.OnSend;
+                @Send.performed -= m_Wrapper.m_Player1ActionsCallbackInterface.OnSend;
+                @Send.canceled -= m_Wrapper.m_Player1ActionsCallbackInterface.OnSend;
             }
             m_Wrapper.m_Player1ActionsCallbackInterface = instance;
             if (instance != null)
@@ -321,6 +366,9 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                 @Attack.started += instance.OnAttack;
                 @Attack.performed += instance.OnAttack;
                 @Attack.canceled += instance.OnAttack;
+                @Send.started += instance.OnSend;
+                @Send.performed += instance.OnSend;
+                @Send.canceled += instance.OnSend;
             }
         }
     }
@@ -330,6 +378,7 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
     private readonly InputActionMap m_Player2;
     private IPlayer2Actions m_Player2ActionsCallbackInterface;
     private readonly InputAction m_Player2_Move;
+    private readonly InputAction m_Player2_Send;
     private readonly InputAction m_Player2_Jump;
     private readonly InputAction m_Player2_Attack;
     public struct Player2Actions
@@ -337,6 +386,7 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
         private @PlayerActionControls m_Wrapper;
         public Player2Actions(@PlayerActionControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player2_Move;
+        public InputAction @Send => m_Wrapper.m_Player2_Send;
         public InputAction @Jump => m_Wrapper.m_Player2_Jump;
         public InputAction @Attack => m_Wrapper.m_Player2_Attack;
         public InputActionMap Get() { return m_Wrapper.m_Player2; }
@@ -351,6 +401,9 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                 @Move.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnMove;
+                @Send.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnSend;
+                @Send.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnSend;
+                @Send.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnSend;
                 @Jump.started -= m_Wrapper.m_Player2ActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_Player2ActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_Player2ActionsCallbackInterface.OnJump;
@@ -364,6 +417,9 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
+                @Send.started += instance.OnSend;
+                @Send.performed += instance.OnSend;
+                @Send.canceled += instance.OnSend;
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
@@ -412,10 +468,12 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
+        void OnSend(InputAction.CallbackContext context);
     }
     public interface IPlayer2Actions
     {
         void OnMove(InputAction.CallbackContext context);
+        void OnSend(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
     }
