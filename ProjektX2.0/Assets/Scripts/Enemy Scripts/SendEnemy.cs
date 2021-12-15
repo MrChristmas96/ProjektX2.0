@@ -27,8 +27,8 @@ public class SendEnemy : MonoBehaviour
         }
         else if (collision.CompareTag("Player2"))
             {
-
-                Send1();
+            
+                Send();
 
 
             }
@@ -45,17 +45,14 @@ public class SendEnemy : MonoBehaviour
             waveSpawner.enemyP1 += gameMaster.p1Points;
             gameMaster.p1Points = 0;
         }
+        else if (Input.GetKeyDown(KeyCode.N))
+            {
+                Debug.Log("heeey");
+                waveSpawner.enemyP2 += gameMaster.p2Points;
+                gameMaster.p2Points = 0;
+            }
     }
 
-    public void Send1()
-    {
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            waveSpawner.enemyP2 += gameMaster.p1Points;
-            gameMaster.p2Points = 0;
-        }
-    }
+  
    
-
-
 }

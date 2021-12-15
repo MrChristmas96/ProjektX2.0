@@ -633,9 +633,9 @@ MonoBehaviour:
     m_ActionName: Esc/Menu[/Keyboard/escape]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 8dd43bb6a61ba884c831a2268227c2d1, type: 3}
-        m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
-        m_MethodName: 
+      - m_Target: {fileID: 3558780222249079341}
+        m_TargetAssemblyTypeName: SendEnemy, Assembly-CSharp
+        m_MethodName: Send
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10474,6 +10474,14 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: aceecda4-b96a-440f-9558-7e520ad4a178
     m_ActionName: Player2/Send[/Keyboard/g]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2074bd43-f4ad-43f8-86f9-ef890723eae3
+    m_ActionName: Player1/Stun[/Keyboard/h]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3f29d859-da20-4fc1-ac5d-33ce6f5214be
+    m_ActionName: Player2/Stun[/Keyboard/b]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player1
@@ -24951,6 +24959,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Ss: {fileID: 1066416551}
+--- !u!1 &1938585089 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9161871650751013103, guid: 2b3e851079303fb449a9b253f11bdb68, type: 3}
+  m_PrefabInstance: {fileID: 9161871651299964759}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1938585093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938585089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f2440510b91c6740a4ef557a93bd9e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveSpawner: {fileID: 0}
+  gameMaster: {fileID: 0}
 --- !u!1 &1955856399
 GameObject:
   m_ObjectHideFlags: 0
@@ -25055,7 +25082,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1995950359}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b4da2a40879f5804da43cc0c1682c49d, type: 3}
@@ -25578,6 +25605,25 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &2058672329 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4805361650502696582, guid: e606ef988ccc2e242829af267c890dc5, type: 3}
+  m_PrefabInstance: {fileID: 4805361650403946226}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2058672333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058672329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f2440510b91c6740a4ef557a93bd9e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveSpawner: {fileID: 0}
+  gameMaster: {fileID: 0}
 --- !u!1001 &2068575586
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26137,6 +26183,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8464551859370988375, guid: c1e901d68b4251c42a55e8f97ec5f009, type: 3}
+      propertyPath: gameMaster
+      value: 
+      objectReference: {fileID: 1338656707}
+    - target: {fileID: 8464551859370988375, guid: c1e901d68b4251c42a55e8f97ec5f009, type: 3}
+      propertyPath: waveSpawner
+      value: 
+      objectReference: {fileID: 1338656705}
     - target: {fileID: 8464551859971936132, guid: c1e901d68b4251c42a55e8f97ec5f009, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -26217,6 +26271,17 @@ PrefabInstance:
     - {fileID: 8464551859971936133, guid: c1e901d68b4251c42a55e8f97ec5f009, type: 3}
     - {fileID: 8464551859370988372, guid: c1e901d68b4251c42a55e8f97ec5f009, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c1e901d68b4251c42a55e8f97ec5f009, type: 3}
+--- !u!114 &3558780222249079341 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8464551859370988375, guid: c1e901d68b4251c42a55e8f97ec5f009, type: 3}
+  m_PrefabInstance: {fileID: 3558780222249079340}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 129799040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dd43bb6a61ba884c831a2268227c2d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4096966416999299261
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26652,6 +26717,14 @@ PrefabInstance:
     - target: {fileID: 9161871650751013098, guid: 2b3e851079303fb449a9b253f11bdb68, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9161871650751013102, guid: 2b3e851079303fb449a9b253f11bdb68, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9161871650751013102, guid: 2b3e851079303fb449a9b253f11bdb68, type: 3}
+      propertyPath: m_Simulated
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9161871650751013102, guid: 2b3e851079303fb449a9b253f11bdb68, type: 3}
       propertyPath: m_CollisionDetection

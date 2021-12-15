@@ -1,30 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Scripting;
+using System;
 
-public class NewBehaviourScript : MonoBehaviour
+public class Prøve : MonoBehaviour
 {
-    public GameObject Ss;
-    public GameObject Pp;
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    void Start()
     {
+
         
-            Ss.SetActive(true);
+    }
+
+
+    public void Update()
+    {
         if (Input.GetKeyDown(KeyCode.K))
         {
-
+            
             GetComponent<Player1Controller>().enabled = false;
             StartCoroutine(Waiter());
         }
 
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-
-            Ss.SetActive(false);
         
     }
+
+
 
 
     IEnumerator Waiter()
@@ -37,4 +39,6 @@ public class NewBehaviourScript : MonoBehaviour
 
 
     }
+
+
 }
