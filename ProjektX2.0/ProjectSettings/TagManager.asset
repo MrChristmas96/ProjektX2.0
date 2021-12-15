@@ -5,23 +5,24 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
-  - house
-  - ground2
-  - ground1
+  - P2House
   - Player1
+  - P1House
   - Player2
   - PointDrop
-  - P1House
-  - P2House
+  - EnemyP1
+  - EnemyP2
+  - Powerup
+  - Ground
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
   - 
-  - Enemy
+  - 
   - 
   - 
   - 

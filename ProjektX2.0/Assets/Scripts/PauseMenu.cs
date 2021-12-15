@@ -7,29 +7,34 @@ public class PauseMenu : MonoBehaviour
     public static bool GameIsPaused = false;
 
     public GameObject pauseMenuUI;
+    private PlayerActionControls menu;
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-    if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (GameIsPaused) 
+        menu = new PlayerActionControls();
+        menu.Enable();
+        menu.Esc.Menu.performed += _ => Esc();
+    }
+
+    private void Esc()
+    {              
+            if (GameIsPaused)
             {
                 Resume();
-            }else
+            }
+            else
             {
                 Pause();
             }
-        }
-        
+
     }
-    public void Resume ()
+    public void Resume()
     {
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
     }
-    void Pause ()
+    void Pause()
     {
         // pauser spillet med Time.timeScale = 0f
         pauseMenuUI.SetActive(true);

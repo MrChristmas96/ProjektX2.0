@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Scene/ProjektX2.0.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Scene/Tutorial.unity
+    guid: 9aad57f267350bf409d624c2767a961a
+  - enabled: 1
+    path: Assets/Scenes/Scene/LooseScreen.unity
+    guid: 3eafc2efae822bb42aa33132cb5afbd9
   m_configObjects: {}

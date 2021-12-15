@@ -187,6 +187,33 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Esc"",
+            ""id"": ""c0b083a0-59ee-474d-ba50-96501aeba1d5"",
+            ""actions"": [
+                {
+                    ""name"": ""Menu"",
+                    ""type"": ""Button"",
+                    ""id"": ""468a8c1e-6086-41be-9e8f-936a45e07024"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""3773ebe2-7f44-496b-8ca3-48679e6b333a"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -201,6 +228,9 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
         m_Player2_Move = m_Player2.FindAction("Move", throwIfNotFound: true);
         m_Player2_Jump = m_Player2.FindAction("Jump", throwIfNotFound: true);
         m_Player2_Attack = m_Player2.FindAction("Attack", throwIfNotFound: true);
+        // Esc
+        m_Esc = asset.FindActionMap("Esc", throwIfNotFound: true);
+        m_Esc_Menu = m_Esc.FindAction("Menu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -344,6 +374,39 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
         }
     }
     public Player2Actions @Player2 => new Player2Actions(this);
+
+    // Esc
+    private readonly InputActionMap m_Esc;
+    private IEscActions m_EscActionsCallbackInterface;
+    private readonly InputAction m_Esc_Menu;
+    public struct EscActions
+    {
+        private @PlayerActionControls m_Wrapper;
+        public EscActions(@PlayerActionControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Menu => m_Wrapper.m_Esc_Menu;
+        public InputActionMap Get() { return m_Wrapper.m_Esc; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(EscActions set) { return set.Get(); }
+        public void SetCallbacks(IEscActions instance)
+        {
+            if (m_Wrapper.m_EscActionsCallbackInterface != null)
+            {
+                @Menu.started -= m_Wrapper.m_EscActionsCallbackInterface.OnMenu;
+                @Menu.performed -= m_Wrapper.m_EscActionsCallbackInterface.OnMenu;
+                @Menu.canceled -= m_Wrapper.m_EscActionsCallbackInterface.OnMenu;
+            }
+            m_Wrapper.m_EscActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Menu.started += instance.OnMenu;
+                @Menu.performed += instance.OnMenu;
+                @Menu.canceled += instance.OnMenu;
+            }
+        }
+    }
+    public EscActions @Esc => new EscActions(this);
     public interface IPlayer1Actions
     {
         void OnMove(InputAction.CallbackContext context);
@@ -355,5 +418,9 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
+    }
+    public interface IEscActions
+    {
+        void OnMenu(InputAction.CallbackContext context);
     }
 }

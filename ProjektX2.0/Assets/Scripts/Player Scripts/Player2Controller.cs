@@ -6,11 +6,14 @@ public class Player2Controller : MonoBehaviour
 {
     public float movementSpeed;
     public float jumpSpeed;
+    public float attackDamage;
     public LayerMask Ground;
 
     public Transform attackPoint;
     public float attackRange = 0.5f;
     public LayerMask enemyLayers;
+
+    public bool facingRight;
 
     public GameMaster gameMaster;
 
@@ -23,12 +26,25 @@ public class Player2Controller : MonoBehaviour
     private Rigidbody2D rb;
     private Collider2D col;
 
+    public ScreenShake screenShake;
+
+    public Camera cameraP2;
+
+    public Transform player;
+    private Animator anim;
+
+    private int comboCounter = 0;
+    private float attackTime;
+    private float attackCooldown = 0.2f;
+
+
     private void Awake()
     {
         player2ActionControls = new PlayerActionControls();
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
         gameMaster = FindObjectOfType<GameMaster>();
+        anim = player.GetComponent<Animator>();
     }
 
     private void OnEnable()
@@ -40,6 +56,8 @@ public class Player2Controller : MonoBehaviour
     {
         player2ActionControls.Player2.Jump.performed += _ => Jump();
         player2ActionControls.Player2.Attack.performed += _ => Attack();
+
+        Physics2D.queriesHitTriggers = false;
     }
 
     private void Jump()
@@ -70,14 +88,51 @@ public class Player2Controller : MonoBehaviour
 
     private void Attack()
     {
-        Debug.Log("Attacked");
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
-        foreach (Collider2D enemy in hitEnemies)
+        if (Time.time > attackTime)
         {
-            Debug.Log("We hit enemy");
-            enemy.GetComponent<EnemyController>().TakeDamage();
+            if (Time.time > attackTime + 0.5f)
+            {
+                comboCounter = 0;
+            }
+
+
+            if (comboCounter == 0)
+            {
+                attackTime = Time.time + attackCooldown;
+                comboCounter++;
+                anim.Play("P1CyberVikingAttack1");
+                foreach (CircleCollider2D enemy in hitEnemies)
+                {
+                    enemy.GetComponent<EnemyController>().TakeDamage(attackDamage);
+                    StartCoroutine(screenShake.Shake(0.1f, 1f));
+                }
+            }
+            else if (comboCounter == 1)
+            {
+                attackTime = Time.time + attackCooldown;
+                comboCounter++;
+                anim.Play("P1CyberVikingAttack2");
+                foreach (CircleCollider2D enemy in hitEnemies)
+                {
+                    enemy.GetComponent<EnemyController>().TakeDamage(attackDamage*1.5f);
+                    StartCoroutine(screenShake.Shake(0.1f, 1f));
+                }
+            }
+            else if (comboCounter == 2)
+            {
+                attackTime = Time.time + attackCooldown + 0.5f;
+                comboCounter = 0;
+                anim.Play("P1CyberVikingAttack3");
+                foreach (CircleCollider2D enemy in hitEnemies)
+                {
+                    enemy.GetComponent<EnemyController>().TakeDamage(attackDamage*2f);
+                    StartCoroutine(screenShake.Shake(0.1f, 1f));
+                }
+            }
         }
+
     }
 
     //Laver en cirkel for at visualisere AttackRange
@@ -91,11 +146,11 @@ public class Player2Controller : MonoBehaviour
         // Laver en boks omkring Player for at checke om den overlapper med ground layer
         Vector2 topLeftPoint = transform.position;
         topLeftPoint.x -= col.bounds.extents.x;
-        topLeftPoint.y += col.bounds.extents.y;
+        topLeftPoint.y += col.bounds.extents.y+3f;
 
         Vector2 bottomRightPoint = transform.position;
         bottomRightPoint.x += col.bounds.extents.x;
-        bottomRightPoint.y -= col.bounds.extents.y;
+        bottomRightPoint.y -= col.bounds.extents.y+3f;
 
         return Physics2D.OverlapArea(topLeftPoint, bottomRightPoint, Ground);
 
@@ -127,6 +182,20 @@ public class Player2Controller : MonoBehaviour
         //Read movement value
         float movementInput = player2ActionControls.Player2.Move.ReadValue<float>();
 
+        //Flip player
+        if ((movementInput < 0 && facingRight))
+        {
+            facingRight = !facingRight;
+            transform.localScale = new Vector3(-0.8f, 0.8f, 1f);
+            cameraP2.transform.localScale = new Vector3(-2, 1, 1);
+        }
+        else if (movementInput > 0 && !facingRight)
+        {
+            facingRight = true;
+            transform.localScale = new Vector3(0.8f, 0.8f, 1f);
+            cameraP2.transform.localScale = new Vector3(2, 1, 1);
+        }
+
         //Move player
         Vector3 currentPosition = transform.position;
         currentPosition.x += movementInput * movementSpeed * Time.deltaTime;
@@ -136,6 +205,8 @@ public class Player2Controller : MonoBehaviour
         {
             jumpTimer -= Time.deltaTime;
         }
+
+        anim.SetFloat("Speed", Mathf.Abs(movementInput));
     }
 
 }
