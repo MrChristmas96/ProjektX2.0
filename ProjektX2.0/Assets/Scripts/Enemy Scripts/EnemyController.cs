@@ -33,7 +33,12 @@ public class EnemyController : MonoBehaviour
     public ParticleSystem blood;
     private ParticleSystem hitPlay;
     private ParticleSystem bloodPlay;
+    public ParticleSystem deathBlood;
+    private ParticleSystem deathBloodPlay;
 
+    public GameObject deadBody;
+    private Transform[] deadBodyParts;
+    private Vector2 position;
 
     private Animator anim;
 
@@ -59,6 +64,10 @@ public class EnemyController : MonoBehaviour
 
         hitPlay = null;
         bloodPlay = null;
+        deathBloodPlay = null;
+
+        deadBodyParts = deadBody.GetComponentsInChildren<Transform>();
+
     }
 
     private void Update()
@@ -200,12 +209,24 @@ public class EnemyController : MonoBehaviour
         if (!this.gameObject.scene.isLoaded) return;
         Instantiate(pointDrop, transform.position, Quaternion.identity);
 
-        int rand = Random.Range(0, 100);
 
+        DeathBlood(deathBlood);
+
+
+        int rand = Random.Range(0, 100);
         if (rand <= 10)
         {
             Instantiate(powerUp, transform.position, Quaternion.identity);
         }
+        
+        for(int i = 0; i < deadBodyParts.Length; i++)
+        {
+            position = new Vector2(transform.position.x + Random.Range(-5f, 5f), transform.position.y + Random.Range(-5f, 5f));
+            Instantiate(deadBodyParts[i], position, Quaternion.identity);
+  
+        }
+
+        
     }
 
     public void TakeDamage(float f)
@@ -225,7 +246,6 @@ public class EnemyController : MonoBehaviour
             hitPlay = Instantiate(hit, transform.position, Quaternion.identity);
         }
         hitPlay.Play();
-
     }
 
     public void BloodEffect(ParticleSystem blood)
@@ -234,6 +254,15 @@ public class EnemyController : MonoBehaviour
         {
             bloodPlay = Instantiate(blood, transform.position, Quaternion.identity);
         }
-        blood.Play();
+        bloodPlay.Play();
+    }
+
+    public void DeathBlood(ParticleSystem deathBlood)
+    {
+        if (deathBloodPlay == null)
+        {
+            deathBloodPlay = Instantiate(blood, transform.position, Quaternion.identity);
+        }
+        deathBloodPlay.Play();
     }
 }
