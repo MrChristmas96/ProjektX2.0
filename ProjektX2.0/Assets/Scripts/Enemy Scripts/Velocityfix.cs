@@ -10,13 +10,7 @@ public class Velocityfix : MonoBehaviour
     {
         rb =  GetComponent<Rigidbody2D>();
 
-        Vector2 direction = new Vector2( Random.Range(-3f, 3f),  Random.Range(1f, 5f));
+        Vector2 direction = new Vector2( Random.Range(-4f, 4f),  Random.Range(3f, 5f));
         rb.velocity = direction*10;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

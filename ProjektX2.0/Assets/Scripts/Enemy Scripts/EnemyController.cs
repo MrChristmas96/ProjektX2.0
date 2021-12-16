@@ -33,9 +33,11 @@ public class EnemyController : MonoBehaviour
     public ParticleSystem blood;
     private ParticleSystem hitPlay;
     private ParticleSystem bloodPlay;
+    public ParticleSystem deathBlood;
+    private ParticleSystem deathBloodPlay;
 
     public GameObject deadBody;
-    public Transform[] deadBodyParts;
+    private Transform[] deadBodyParts;
     private Vector2 position;
 
     private Animator anim;
@@ -62,6 +64,7 @@ public class EnemyController : MonoBehaviour
 
         hitPlay = null;
         bloodPlay = null;
+        deathBloodPlay = null;
 
         deadBodyParts = deadBody.GetComponentsInChildren<Transform>();
 
@@ -206,8 +209,11 @@ public class EnemyController : MonoBehaviour
         if (!this.gameObject.scene.isLoaded) return;
         Instantiate(pointDrop, transform.position, Quaternion.identity);
 
-        int rand = Random.Range(0, 100);
 
+        DeathBlood(deathBlood);
+
+
+        int rand = Random.Range(0, 100);
         if (rand <= 10)
         {
             Instantiate(powerUp, transform.position, Quaternion.identity);
@@ -240,7 +246,6 @@ public class EnemyController : MonoBehaviour
             hitPlay = Instantiate(hit, transform.position, Quaternion.identity);
         }
         hitPlay.Play();
-
     }
 
     public void BloodEffect(ParticleSystem blood)
@@ -249,6 +254,15 @@ public class EnemyController : MonoBehaviour
         {
             bloodPlay = Instantiate(blood, transform.position, Quaternion.identity);
         }
-        blood.Play();
+        bloodPlay.Play();
+    }
+
+    public void DeathBlood(ParticleSystem deathBlood)
+    {
+        if (deathBloodPlay == null)
+        {
+            deathBloodPlay = Instantiate(blood, transform.position, Quaternion.identity);
+        }
+        deathBloodPlay.Play();
     }
 }
