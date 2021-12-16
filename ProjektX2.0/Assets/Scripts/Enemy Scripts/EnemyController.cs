@@ -34,6 +34,9 @@ public class EnemyController : MonoBehaviour
     private ParticleSystem hitPlay;
     private ParticleSystem bloodPlay;
 
+    public GameObject deadBody;
+    public Transform[] deadBodyParts;
+    private Vector2 position;
 
     private Animator anim;
 
@@ -59,6 +62,9 @@ public class EnemyController : MonoBehaviour
 
         hitPlay = null;
         bloodPlay = null;
+
+        deadBodyParts = deadBody.GetComponentsInChildren<Transform>();
+
     }
 
     private void Update()
@@ -206,6 +212,15 @@ public class EnemyController : MonoBehaviour
         {
             Instantiate(powerUp, transform.position, Quaternion.identity);
         }
+        
+        for(int i = 0; i < deadBodyParts.Length; i++)
+        {
+            position = new Vector2(transform.position.x + Random.Range(-5f, 5f), transform.position.y + Random.Range(-5f, 5f));
+            Instantiate(deadBodyParts[i], position, Quaternion.identity);
+  
+        }
+
+        
     }
 
     public void TakeDamage(float f)

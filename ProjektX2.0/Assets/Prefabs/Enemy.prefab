@@ -87,6 +87,8 @@ MonoBehaviour:
   currentEnemyHealth: 75
   hit: {fileID: 2204603645861867133, guid: 2be30ad3103d5804cbfc8231583b5143, type: 3}
   blood: {fileID: 5072110392913133923, guid: 777c79181b9669c4f8d306558532e208, type: 3}
+  deadBody: {fileID: 3227774553223211007, guid: 37b93093dfd0e3f40bc069f7d77a90b8, type: 3}
+  deadBodyParts: []
 --- !u!70 &7438409472522673224
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
