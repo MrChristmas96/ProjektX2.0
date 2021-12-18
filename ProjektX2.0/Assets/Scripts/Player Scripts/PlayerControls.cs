@@ -243,7 +243,7 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""3b70bac1-cd23-487c-adc3-2cb05dc88ec1"",
-                    ""path"": ""<Keyboard>/n"",
+                    ""path"": ""<Keyboard>/comma"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -254,7 +254,7 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""d6eacad3-38a7-4684-9883-3d7447af7471"",
-                    ""path"": ""<Keyboard>/b"",
+                    ""path"": ""<Keyboard>/period"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

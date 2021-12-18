@@ -11,12 +11,29 @@ public class ShopTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        IShopCustomer shopCustomer = collider.GetComponent<IShopCustomer>();
-        uiShop.Show(shopCustomer);
+        if (collider.CompareTag("Player1"))
+        {
+            IShopCustomer shopCustomer = collider.GetComponent<IShopCustomer>();
+            uiShop.Show(shopCustomer);
+        }
+
+        else if (collider.CompareTag("Player2"))
+        {
+
+        }
+
     }
     private void OnTriggerExit2D(Collider2D collider)
     {
-        IShopCustomer shopCustomer = collider.GetComponent<IShopCustomer>();     
-        uiShop.Hide();
+        
+        if (collider.CompareTag("Player1"))
+        {
+            IShopCustomer shopCustomer = collider.GetComponent<IShopCustomer>();
+            uiShop.Hide();
+        }
+        else if (collider.CompareTag("Player2"))
+        {
+
+        }
     }
 }
