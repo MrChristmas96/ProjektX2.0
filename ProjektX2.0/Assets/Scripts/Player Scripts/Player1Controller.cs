@@ -38,6 +38,8 @@ public class Player1Controller : MonoBehaviour
     private float attackTime;
     private float attackCooldown = 0.2f;
 
+    public SendEnemy shop;
+
     private void Awake()
     {
         player1ActionControls = new PlayerActionControls();
@@ -58,6 +60,8 @@ public class Player1Controller : MonoBehaviour
         // Tilføjer inputs
         player1ActionControls.Player1.Jump.performed += _ => Jump();
         player1ActionControls.Player1.Attack.performed += _ => Attack();
+        player1ActionControls.Player1.Send.performed += _ => Send();
+        player1ActionControls.Player1.Stun.performed += _ => Stun();
 
         Physics2D.queriesHitTriggers = false;
     }
@@ -136,6 +140,16 @@ public class Player1Controller : MonoBehaviour
             }
         }
         
+    }
+
+    private void Send()
+    {
+        shop.Send();
+    }
+
+    private void Stun()
+    {
+        shop.Stun();
     }
 
     //Laver en cirkel for at visualisere AttackRange
