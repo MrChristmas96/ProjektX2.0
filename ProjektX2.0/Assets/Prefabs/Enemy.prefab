@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 751574493}
   - component: {fileID: 964995580}
   - component: {fileID: 7842125713173289614}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -72,12 +72,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04cff08e9c2b0614aabea4162d383301, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameMaster: {fileID: 0}
+  gameMaster: {fileID: 5176497441215935711, guid: 10850a24a60802b4eb5159fc24375245, type: 3}
   speed: 5
   StoppingDistance: 10
   playerLayer:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 128
   attackDamage: 10
   attackSpeed: 1
   attackPoint: {fileID: 3700691828080097933}
@@ -89,7 +89,6 @@ MonoBehaviour:
   blood: {fileID: 5072110392913133923, guid: 777c79181b9669c4f8d306558532e208, type: 3}
   deathBlood: {fileID: 7244275414678943102, guid: 20493743103909f40afc54b8849aeb25, type: 3}
   deadBody: {fileID: 3227774553223211007, guid: 37b93093dfd0e3f40bc069f7d77a90b8, type: 3}
-  deadBodyParts: []
 --- !u!70 &7438409472522673224
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
