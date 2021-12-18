@@ -966,7 +966,7 @@ Transform:
   - {fileID: 1050856698}
   - {fileID: 597867961}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &191327728
 GameObject:
@@ -1218,7 +1218,7 @@ GameObject:
   - component: {fileID: 254588774}
   - component: {fileID: 254588776}
   - component: {fileID: 254588775}
-  m_Layer: 8
+  m_Layer: 3
   m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1451,7 +1451,7 @@ Transform:
   - {fileID: 470153567}
   - {fileID: 25661459}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &286518476
 GameObject:
@@ -2826,6 +2826,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3345965002253980551, guid: abfe1351c930e454282a61c7b96ef6f9, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3822351423917778323, guid: abfe1351c930e454282a61c7b96ef6f9, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -4137,6 +4141,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3345965002253980551, guid: abfe1351c930e454282a61c7b96ef6f9, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3822351423917778323, guid: abfe1351c930e454282a61c7b96ef6f9, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -4178,7 +4186,7 @@ GameObject:
   - component: {fileID: 750487478}
   - component: {fileID: 750487479}
   - component: {fileID: 750487480}
-  m_Layer: 8
+  m_Layer: 3
   m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10449,6 +10457,10 @@ PrefabInstance:
     - target: {fileID: 3345965002253980551, guid: abfe1351c930e454282a61c7b96ef6f9, type: 3}
       propertyPath: m_Name
       value: Ground (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3345965002253980551, guid: abfe1351c930e454282a61c7b96ef6f9, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3822351423917778323, guid: abfe1351c930e454282a61c7b96ef6f9, type: 3}
       propertyPath: m_Sprite
@@ -18386,6 +18398,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground
       objectReference: {fileID: 0}
+    - target: {fileID: 3345965002253980551, guid: abfe1351c930e454282a61c7b96ef6f9, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3822351423917778323, guid: abfe1351c930e454282a61c7b96ef6f9, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -25595,6 +25611,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ground (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3345965002253980551, guid: abfe1351c930e454282a61c7b96ef6f9, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3822351423917778323, guid: abfe1351c930e454282a61c7b96ef6f9, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -25795,7 +25815,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1986487473131117604, guid: 223bf394c6956c047ac3c378c6bc12c3, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1986487473131117604, guid: 223bf394c6956c047ac3c378c6bc12c3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -25924,7 +25944,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8464551859971936184, guid: c1e901d68b4251c42a55e8f97ec5f009, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8464551859971936185, guid: c1e901d68b4251c42a55e8f97ec5f009, type: 3}
       propertyPath: m_Name
@@ -25932,7 +25952,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8464551859971936185, guid: c1e901d68b4251c42a55e8f97ec5f009, type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8464551859971936185, guid: c1e901d68b4251c42a55e8f97ec5f009, type: 3}
       propertyPath: m_IsActive
@@ -26041,6 +26061,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1484996304, guid: e606ef988ccc2e242829af267c890dc5, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4805361650502696580, guid: e606ef988ccc2e242829af267c890dc5, type: 3}
       propertyPath: m_CollisionDetection
       value: 1
@@ -26068,6 +26092,14 @@ PrefabInstance:
     - target: {fileID: 4805361650502696584, guid: e606ef988ccc2e242829af267c890dc5, type: 3}
       propertyPath: attackDamage
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805361650502696584, guid: e606ef988ccc2e242829af267c890dc5, type: 3}
+      propertyPath: Ground.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4805361650502696584, guid: e606ef988ccc2e242829af267c890dc5, type: 3}
+      propertyPath: enemyLayers.m_Bits
+      value: 768
       objectReference: {fileID: 0}
     - target: {fileID: 4805361650502696587, guid: e606ef988ccc2e242829af267c890dc5, type: 3}
       propertyPath: m_RootOrder
@@ -26169,6 +26201,10 @@ PrefabInstance:
     - target: {fileID: 3345965002253980551, guid: abfe1351c930e454282a61c7b96ef6f9, type: 3}
       propertyPath: m_Name
       value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 3345965002253980551, guid: abfe1351c930e454282a61c7b96ef6f9, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3822351423917778323, guid: abfe1351c930e454282a61c7b96ef6f9, type: 3}
       propertyPath: m_Sprite
@@ -26278,11 +26314,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8464551859971936184, guid: c1e901d68b4251c42a55e8f97ec5f009, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8464551859971936185, guid: c1e901d68b4251c42a55e8f97ec5f009, type: 3}
       propertyPath: m_Name
       value: HouseP1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8464551859971936185, guid: c1e901d68b4251c42a55e8f97ec5f009, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8464551859971936187, guid: c1e901d68b4251c42a55e8f97ec5f009, type: 3}
       propertyPath: m_BodyType
@@ -26313,6 +26353,14 @@ PrefabInstance:
       propertyPath: attackDamage
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 895559634, guid: 2b3e851079303fb449a9b253f11bdb68, type: 3}
+      propertyPath: Ground.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 895559634, guid: 2b3e851079303fb449a9b253f11bdb68, type: 3}
+      propertyPath: enemyLayers.m_Bits
+      value: 768
+      objectReference: {fileID: 0}
     - target: {fileID: 957180849, guid: 2b3e851079303fb449a9b253f11bdb68, type: 3}
       propertyPath: m_Color.b
       value: 0
@@ -26340,6 +26388,10 @@ PrefabInstance:
     - target: {fileID: 1055175932, guid: 2b3e851079303fb449a9b253f11bdb68, type: 3}
       propertyPath: m_Color.r
       value: 0.41568628
+      objectReference: {fileID: 0}
+    - target: {fileID: 1859408515, guid: 2b3e851079303fb449a9b253f11bdb68, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2017073300, guid: 2b3e851079303fb449a9b253f11bdb68, type: 3}
       propertyPath: m_Color.b
