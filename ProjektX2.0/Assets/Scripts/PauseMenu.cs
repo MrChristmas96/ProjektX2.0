@@ -14,6 +14,8 @@ public class PauseMenu : MonoBehaviour
         menu = new PlayerActionControls();
         menu.Enable();
         menu.Esc.Menu.performed += _ => Esc();
+
+        pauseMenuUI.SetActive(false);
     }
 
     private void Esc()
@@ -24,9 +26,8 @@ public class PauseMenu : MonoBehaviour
             }
             else
             {
-                Pause();
+            Pause();
             }
-
     }
     public void Resume()
     {
