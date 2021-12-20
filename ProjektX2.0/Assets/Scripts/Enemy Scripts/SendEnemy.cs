@@ -58,17 +58,20 @@ public class SendEnemy : MonoBehaviour
         }
         else if (player == "P1")
         {
-            waveSpawner.enemyP1 += gameMaster.p1Points;
-            gameMaster.p1Points = 0;
-            player = "P0";
+            if(gameMaster.p1Points >= 5)
+            {
+                waveSpawner.enemyP1 += 5;
+                gameMaster.p1Points -= 5;
+            }
         }
         else if (player == "P2")
         {
-            waveSpawner.enemyP2 += gameMaster.p2Points;
-            gameMaster.p2Points = 0;
-            player = "P0";
+            if (gameMaster.p2Points >= 5)
+            {
+                waveSpawner.enemyP2 += 5;
+                gameMaster.p2Points -= 5;
+            }
         }
-
     }
 
     public void Stun()
