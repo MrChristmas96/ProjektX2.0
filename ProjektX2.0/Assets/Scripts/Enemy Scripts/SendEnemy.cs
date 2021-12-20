@@ -92,7 +92,7 @@ public class SendEnemy : MonoBehaviour
             }
             else
             {
-                Debug.Log("Not enought Points");
+                Debug.Log("Not enough Points");
             }
 
         }
@@ -108,7 +108,7 @@ public class SendEnemy : MonoBehaviour
             }
             else
             {
-                Debug.Log("Not enought Points");
+                Debug.Log("Not enough Points");
             }
         }
     }
