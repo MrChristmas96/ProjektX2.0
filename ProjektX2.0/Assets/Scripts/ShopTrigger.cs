@@ -11,7 +11,6 @@ public class ShopTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-<<<<<<< Updated upstream
         IShopCustomer shopCustomer = collider.GetComponent<IShopCustomer>();
         uiShop.Show(shopCustomer);
     }
@@ -19,29 +18,5 @@ public class ShopTrigger : MonoBehaviour
     {
         IShopCustomer shopCustomer = collider.GetComponent<IShopCustomer>();     
         uiShop.Hide();
-=======
-        if (collider.CompareTag("Player1"))
-        {
-            uiShop.ShowP1();
-        }
-
-        else if (collider.CompareTag("Player2"))
-        {
-            uiShop.ShowP2();
-        }
-
-    }
-    private void OnTriggerExit2D(Collider2D collider)
-    {
-        
-        if (collider.CompareTag("Player1"))
-        {
-            uiShop.HideP1();
-        }
-        else if (collider.CompareTag("Player2"))
-        {
-            uiShop.HideP2();
-        }
->>>>>>> Stashed changes
     }
 }
