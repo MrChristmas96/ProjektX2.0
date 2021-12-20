@@ -89,8 +89,6 @@ public class WaveSpawner : MonoBehaviour
                 waveCountDown -= Time.deltaTime;
             }
         }
-
-
     }
 
     void WaveCompleted()
@@ -105,9 +103,7 @@ public class WaveSpawner : MonoBehaviour
             Wave.count += 2;
             waveCount++;
             GM.waveCount++;
-            nextWave = 0;
-            
-            
+            nextWave = 0;    
         }
         else
         {
@@ -126,7 +122,6 @@ public class WaveSpawner : MonoBehaviour
             {
                 return false;
             }
-            
         }
         return true;
     }
@@ -140,7 +135,6 @@ public class WaveSpawner : MonoBehaviour
         for (int i=0; i< Wave.count; i++)
         {
             SpawnEnemy(_wave.enemy);
-
             //lille delay på at spawne fjender lige efter hinanden
             yield return new WaitForSeconds (1f / _wave.rate) ;
         }

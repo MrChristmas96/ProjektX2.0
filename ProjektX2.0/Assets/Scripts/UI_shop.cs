@@ -7,29 +7,21 @@ using UnityEngine.UI;
 
 public class UI_shop : MonoBehaviour
 {
-    //Populate our store.
-    private Transform Container;
-    private Transform ShopItemTemplate;
-    private IShopCustomer shopCustomer;
 
     private void Awake()
     {
-        Container = transform.Find("Container");
-        ShopItemTemplate = transform.Find("ShopItemTemplate");
-        
-
+        HideP1();
+        HideP2();
     }
 
-
-
-    private void Start()
+    public void ShowP1()
     {
-        Hide();
+        gameObject.SetActive(true);
     }
 
-
-    private void CreateItemButton(Sprite itemSprite, string itemName, int itemCost, int positionIndex)
+    public void HideP1()
     {
+<<<<<<< Updated upstream
         Transform shopItemTransform = Instantiate(ShopItemTemplate, Container);
         shopItemTransform.gameObject.SetActive(true);
         RectTransform shopItemRectTransform = shopItemTransform.GetComponent<RectTransform>();
@@ -44,20 +36,18 @@ public class UI_shop : MonoBehaviour
 
 
 
+=======
+        gameObject.SetActive(false);
+>>>>>>> Stashed changes
     }
-   
 
-    public void Show(IShopCustomer shopCustomer)
+    public void ShowP2()
     {
-        this.shopCustomer = shopCustomer;
         gameObject.SetActive(true);
-
     }
 
-    public void Hide()
+    public void HideP2()
     {
         gameObject.SetActive(false);
     }
-
-
 }
