@@ -20,9 +20,22 @@ public class UIMaster : MonoBehaviour
     public GameMaster gameMaster;
     public WaveSpawner waveSpawner;
 
+    [SerializeField] private Text yetiCostP1;
+    [SerializeField] private RectTransform spawnYetiP1;
+    [SerializeField] private Text stunCostP1;
+    [SerializeField] private RectTransform stunYetiP1;
+    [SerializeField] private Text yetiCostP2;
+    [SerializeField] private RectTransform spawnYetiP2;
+    [SerializeField] private Text stunCostP2;
+    [SerializeField] private RectTransform stunYetiP2;
+
     private void Start()
     {
         anim = GetComponent<Animator>();
+        yetiCostP1 = spawnYetiP1.GetComponent<Text>();
+        stunCostP1 = stunYetiP1.GetComponent<Text>();
+        yetiCostP2 = spawnYetiP2.GetComponent<Text>();
+        stunCostP2 = stunYetiP2.GetComponent<Text>();
     }
 
     void Update()
@@ -30,6 +43,11 @@ public class UIMaster : MonoBehaviour
         p1PointsUI.text = "Player 1 points: " + gameMaster.p1Points;
         p2PointsUI.text = "Player 2 points: " + gameMaster.p2Points;
         WaveCount.text = "Wave: " + gameMaster.waveCount;
+
+        yetiCostP1.text = "" + gameMaster.p1Points;
+        stunCostP1.text = "10";
+        yetiCostP2.text = "" + gameMaster.p2Points;
+        stunCostP2.text = "10";
     }
 
     public void ReactorDamageFlashP1()

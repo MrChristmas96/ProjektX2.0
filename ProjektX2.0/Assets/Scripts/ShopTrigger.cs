@@ -13,13 +13,12 @@ public class ShopTrigger : MonoBehaviour
     {
         if (collider.CompareTag("Player1"))
         {
-            IShopCustomer shopCustomer = collider.GetComponent<IShopCustomer>();
-            uiShop.Show(shopCustomer);
+            uiShop.ShowP1();
         }
 
         else if (collider.CompareTag("Player2"))
         {
-
+            uiShop.ShowP2();
         }
 
     }
@@ -28,12 +27,11 @@ public class ShopTrigger : MonoBehaviour
         
         if (collider.CompareTag("Player1"))
         {
-            IShopCustomer shopCustomer = collider.GetComponent<IShopCustomer>();
-            uiShop.Hide();
+            uiShop.HideP1();
         }
         else if (collider.CompareTag("Player2"))
         {
-
+            uiShop.HideP2();
         }
     }
 }
