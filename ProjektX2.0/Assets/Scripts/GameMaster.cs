@@ -43,7 +43,7 @@ public class GameMaster : MonoBehaviour
         {
             Debug.Log("Player 1 died");
 
-            SceneManager.LoadScene("LooseScreen");
+            SceneManager.LoadScene("LooseScreenP2");
 
         }
     }
