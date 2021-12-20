@@ -28,6 +28,22 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Send",
+                    "type": "Button",
+                    "id": "c822f031-3753-4e08-848f-241519d8f3f7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Stun",
+                    "type": "Button",
+                    "id": "4c242048-12c6-48c7-9757-d9976173f094",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -85,6 +101,28 @@
                     "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "db41d59e-8747-4c0d-865d-e2c0154e5c96",
+                    "path": "<Keyboard>/g",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Send",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "af0fa59c-d668-447c-8da7-690dafbaf7cb",
+                    "path": "<Keyboard>/h",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Stun",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -112,6 +150,22 @@
                     "name": "Attack",
                     "type": "Button",
                     "id": "6c153b17-8a57-4e72-9077-23e462e89dfb",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Send",
+                    "type": "Button",
+                    "id": "aceecda4-b96a-440f-9558-7e520ad4a178",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Stun",
+                    "type": "Button",
+                    "id": "1026c14e-0903-4076-ab37-2796eed63714",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -170,6 +224,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3b70bac1-cd23-487c-adc3-2cb05dc88ec1",
+                    "path": "<Keyboard>/comma",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Send",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d6eacad3-38a7-4684-9883-3d7447af7471",
+                    "path": "<Keyboard>/period",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Stun",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
