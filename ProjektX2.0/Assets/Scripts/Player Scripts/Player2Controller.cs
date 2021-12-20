@@ -52,6 +52,11 @@ public class Player2Controller : MonoBehaviour
         player2ActionControls.Enable();
     }
 
+    private void OnDisable()
+    {
+        player2ActionControls.Disable();
+    }
+
     void Start()
     {
         player2ActionControls.Player2.Jump.performed += _ => Jump();

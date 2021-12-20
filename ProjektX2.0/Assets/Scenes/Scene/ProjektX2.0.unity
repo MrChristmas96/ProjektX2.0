@@ -17598,6 +17598,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1486530617}
   m_CullTransparentMesh: 1
+--- !u!1 &1498988066 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8534103658819956592, guid: a5da4eb1db9b61d4082998ae3adc96bb, type: 3}
+  m_PrefabInstance: {fileID: 8534103657363555369}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1501486209
 GameObject:
   m_ObjectHideFlags: 0
@@ -27097,6 +27102,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2055427295}
     m_Modifications:
+    - target: {fileID: 8534103658472500998, guid: a5da4eb1db9b61d4082998ae3adc96bb, type: 3}
+      propertyPath: pauseMenuUI
+      value: 
+      objectReference: {fileID: 1498988066}
     - target: {fileID: 8534103658472500999, guid: a5da4eb1db9b61d4082998ae3adc96bb, type: 3}
       propertyPath: m_Name
       value: PauseMenu

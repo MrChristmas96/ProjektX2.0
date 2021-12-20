@@ -42,6 +42,7 @@ public class Player1Controller : MonoBehaviour
 
     private void Awake()
     {
+
         player1ActionControls = new PlayerActionControls();
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
@@ -52,6 +53,11 @@ public class Player1Controller : MonoBehaviour
     private void OnEnable()
     {
         player1ActionControls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        player1ActionControls.Disable();
     }
 
 

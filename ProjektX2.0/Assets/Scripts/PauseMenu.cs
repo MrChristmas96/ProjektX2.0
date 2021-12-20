@@ -8,16 +8,26 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject pauseMenuUI;
     private PlayerActionControls menu;
+    public bool menuExists;
 
     private void Awake()
     {
         menu = new PlayerActionControls();
-        menu.Enable();
+        menuExists = true;
         menu.Esc.Menu.performed += _ => Esc();
-
         pauseMenuUI.SetActive(false);
+
     }
 
+    private void OnEnable()
+    {
+        menu.Enable();
+    }
+
+    private void OnDisable()
+    {
+        menu.Disable();
+    }
     private void Esc()
     {              
             if (GameIsPaused)

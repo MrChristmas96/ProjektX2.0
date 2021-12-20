@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class UIMaster : MonoBehaviour
 {
-
     public Text p1PointsUI;
     public Text p2PointsUI;
     public Text WaveCount;
