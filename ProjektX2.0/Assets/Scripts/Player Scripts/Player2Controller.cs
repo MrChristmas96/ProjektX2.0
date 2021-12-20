@@ -38,6 +38,9 @@ public class Player2Controller : MonoBehaviour
     private float attackCooldown = 0.2f;
 
     public SendEnemy shop;
+
+    public AudioSource swing;
+    public AudioSource hitSfx;
     private void Awake()
     {
         player2ActionControls = new PlayerActionControls();
@@ -45,6 +48,7 @@ public class Player2Controller : MonoBehaviour
         col = GetComponent<Collider2D>();
         gameMaster = FindObjectOfType<GameMaster>();
         anim = player.GetComponent<Animator>();
+        swing = GetComponent<AudioSource>();
     }
 
     private void OnEnable()
@@ -110,8 +114,10 @@ public class Player2Controller : MonoBehaviour
                 attackTime = Time.time + attackCooldown;
                 comboCounter++;
                 anim.Play("P1CyberVikingAttack1");
+                swing.Play();
                 foreach (CircleCollider2D enemy in hitEnemies)
                 {
+                    hitSfx.Play();
                     enemy.GetComponent<EnemyController>().TakeDamage(attackDamage);
                     StartCoroutine(screenShake.Shake(0.1f, 1f));
                 }
@@ -121,8 +127,10 @@ public class Player2Controller : MonoBehaviour
                 attackTime = Time.time + attackCooldown;
                 comboCounter++;
                 anim.Play("P1CyberVikingAttack2");
+                swing.Play();
                 foreach (CircleCollider2D enemy in hitEnemies)
                 {
+                    hitSfx.Play();
                     enemy.GetComponent<EnemyController>().TakeDamage(attackDamage*1.5f);
                     StartCoroutine(screenShake.Shake(0.1f, 1f));
                 }
@@ -132,8 +140,10 @@ public class Player2Controller : MonoBehaviour
                 attackTime = Time.time + attackCooldown + 0.5f;
                 comboCounter = 0;
                 anim.Play("P1CyberVikingAttack3");
+                swing.Play();
                 foreach (CircleCollider2D enemy in hitEnemies)
                 {
+                    hitSfx.Play();
                     enemy.GetComponent<EnemyController>().TakeDamage(attackDamage*2f);
                     StartCoroutine(screenShake.Shake(0.1f, 1f));
                 }
